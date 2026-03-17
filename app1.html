@@ -32,17 +32,36 @@ body {
 
 /* ===== HERO ===== */
 .hero {
+  position: relative;
   padding: 60px;
-  background: linear-gradient(120deg, #1a1a1a, #000);
+  overflow: hidden;
 }
 
+/* nền blur từ icon */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(90px) saturate(140%);
+  transform: scale(1.8);
+  opacity: 0.7;
+}
+
+/* nội dung nổi lên */
 .hero-content {
+  position: relative;
+  z-index: 2;
+
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-/* ===== ICON STYLE TIKTOK ===== */
+/* ===== ICON KÍNH ===== */
 .icon {
   width: 180px;
   height: 180px;
@@ -51,7 +70,6 @@ body {
   overflow: hidden;
   background: #000;
 
-  /* chiều sâu */
   box-shadow:
     0 25px 60px rgba(0,0,0,0.6),
     0 0 20px rgba(255,255,255,0.05);
@@ -63,32 +81,27 @@ body {
   object-fit: cover;
 }
 
-/* ✨ lớp kính */
+/* lớp kính */
 .icon::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 40px;
-  pointer-events: none;
 
   background: linear-gradient(
     145deg,
-    rgba(255,255,255,0.35) 0%,
-    rgba(255,255,255,0.12) 25%,
-    transparent 45%,
-    transparent 60%,
-    rgba(255,255,255,0.08) 75%,
-    rgba(255,255,255,0.2) 100%
+    rgba(255,255,255,0.35),
+    transparent 40%,
+    rgba(255,255,255,0.1)
   );
 }
 
-/* ✨ viền kính */
+/* viền kính */
 .icon::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 40px;
-  pointer-events: none;
 
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.5),
@@ -179,15 +192,18 @@ body {
 
 <div class="main">
 
+  <!-- HERO -->
   <div class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+
     <div class="hero-content">
 
       <div class="icon">
-        <img src="https://i.ibb.co/1fzpC5N3/vecto-tiktok-scaled.jpg">
+        <img id="appIcon" src="https://i.ibb.co/1fzpC5N3/vecto-tiktok-scaled.jpg">
       </div>
 
       <div class="info">
-        <h1>Play Together VNG</h1>
+        <h1 id="appName">TikTok</h1>
         <div class="sub">Simulation</div>
         <div class="sub">Free · In-App Purchases</div>
         <div class="get-btn">GET</div>
@@ -196,6 +212,7 @@ body {
     </div>
   </div>
 
+  <!-- INFO -->
   <div class="info-bar">
     <div class="info-box"><small>RATINGS</small><h3>4.1 ★</h3></div>
     <div class="info-box"><small>AGE</small><h3>13+</h3></div>
@@ -205,6 +222,7 @@ body {
     <div class="info-box"><small>SIZE</small><h3>2.4 GB</h3></div>
   </div>
 
+  <!-- PREVIEW -->
   <div class="preview">
     <div class="slider">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
@@ -213,12 +231,26 @@ body {
     </div>
   </div>
 
+  <!-- DESC -->
   <div class="desc">
     Gặp gỡ bạn bè khắp nơi 🌍<br><br>
     Đây là thế giới ảo nơi bạn có thể chơi cùng mọi người...
   </div>
 
 </div>
+
+<script>
+function setApp(icon, name) {
+  document.getElementById("appIcon").src = icon;
+  document.getElementById("appName").innerText = name;
+
+  const bg = document.getElementById("heroBg");
+  bg.style.backgroundImage = `url(${icon})`;
+}
+
+/* load mặc định */
+setApp("https://i.ibb.co/1fzpC5N3/vecto-tiktok-scaled.jpg", "TikTok");
+</script>
 
 </body>
 </html>
