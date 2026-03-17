@@ -1,87 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Play Together</title>
+  <title>App Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial;
-      background: #121212;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
       color: white;
     }
 
+    /* ===== BANNER ===== */
     .banner {
-      padding: 30px;
-      background: linear-gradient(to right, #ff512f, #dd2476);
+      padding: 40px 20px;
+      background: linear-gradient(120deg, #ff512f, #dd2476, #1e3c72);
     }
 
     .top {
       display: flex;
       align-items: center;
+      gap: 20px;
     }
 
     .top img {
-      width: 100px;
-      border-radius: 20px;
-      margin-right: 20px;
+      width: 130px;
+      height: 130px;
+      border-radius: 30px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
     }
 
     .info h1 {
       margin: 0;
+      font-size: 28px;
+    }
+
+    .info p {
+      margin: 5px 0;
+      color: #ddd;
     }
 
     .btn {
-      margin-top: 10px;
+      margin-top: 12px;
       display: inline-block;
-      padding: 10px 20px;
+      padding: 10px 22px;
       background: #00c853;
-      border-radius: 10px;
-      color: white;
+      border-radius: 20px;
+      font-weight: bold;
       text-decoration: none;
+      color: white;
     }
 
+    /* ===== STATS ===== */
     .stats {
       display: flex;
       justify-content: space-around;
-      padding: 20px;
-      background: #1f1f1f;
+      padding: 20px 0;
+      background: #111;
       text-align: center;
     }
 
+    .stats h3 {
+      margin: 5px 0;
+    }
+
+    .stats p {
+      color: #aaa;
+      margin: 0;
+    }
+
+    /* ===== IMAGE SLIDE ===== */
     .section {
       padding: 20px;
     }
 
     .images {
       display: flex;
+      gap: 15px;
       overflow-x: auto;
     }
 
-    .images img {
-      width: 250px;
-      margin-right: 10px;
-      border-radius: 15px;
+    .images::-webkit-scrollbar {
+      display: none;
     }
+
+    .images img {
+      width: 300px;
+      height: 170px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    /* ===== TEXT ===== */
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+    }
+
   </style>
 </head>
 
 <body>
 
-<!-- Banner -->
+<!-- ===== BANNER ===== -->
 <div class="banner">
   <div class="top">
-    <img src="https://i.ibb.co/0VXMC54z/windows-defender-off.png">
+    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+
     <div class="info">
       <h1>Defender Control</h1>
       <p>Nhà phát hành: VNG 😏</p>
-      <a class="btn" href="https://drive.google.com/uc?export=download&id=1L3PDINlcK2RRo5VJCX2LkIqQu9k9b4QM">
-        Cài đặt
-      </a>
+      <a class="btn" href="#">Cài đặt</a>
     </div>
   </div>
 </div>
 
-<!-- Thông tin -->
+<!-- ===== STATS ===== -->
 <div class="stats">
   <div>
     <h3>4.5 ⭐</h3>
@@ -97,31 +136,31 @@
   </div>
 </div>
 
-<!-- Ảnh -->
+<!-- ===== ẢNH ===== -->
 <div class="section">
   <h2>📸 Ảnh ứng dụng</h2>
   <div class="images">
-  <img src="https://i.ibb.co/Cp8rVydS/cach-tat-diet-virus-window-defender-tren-may-tinh-hieu-qua.jpg">
-  <img src="https://i.ibb.co/0VXMC54z/windows-defender-off.png">
-  <img src="https://i.ibb.co/0VXMC54z/windows-defender-off.png">
-</div>
+    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+  </div>
 </div>
 
-<!-- Mô tả -->
+<!-- ===== MÔ TẢ ===== -->
 <div class="section">
   <h2>📖 Giới thiệu</h2>
   <p>
-    Đây là game siêu vui 😏 chơi cùng bạn bè khắp thế giới.
+    Đây là ứng dụng cực xịn 😏 giao diện giống App Store luôn.
   </p>
 </div>
 
-<!-- Hướng dẫn -->
+<!-- ===== HƯỚNG DẪN ===== -->
 <div class="section">
   <h2>📥 Hướng dẫn</h2>
   <p>
     1. Bấm tải  
     2. Cài đặt  
-    3. Mở game  
+    3. Mở app  
   </p>
 </div>
 
