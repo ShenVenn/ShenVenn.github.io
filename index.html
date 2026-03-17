@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kho App của anh</title>
+  <title>App Store Mini</title>
   <style>
     body {
-      background: #111;
-      color: white;
+      margin: 0;
       font-family: Arial;
+      background: #121212;
+      color: white;
     }
 
-    h1 {
+    .header {
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
       text-align: center;
+      background: #1f1f1f;
     }
 
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      padding: 10px;
     }
 
     .card {
-      width: 200px;
-      margin: 15px;
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
+      width: 150px;
+      margin: 10px;
       text-align: center;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
     }
 
     .card img {
       width: 100%;
+      border-radius: 20px;
     }
 
     a {
       text-decoration: none;
       color: white;
     }
+
+    .title {
+      margin-top: 8px;
+      font-size: 14px;
+    }
   </style>
 </head>
 
 <body>
 
-<h1>📱 Kho App</h1>
+<div class="header">📱 App Store</div>
 
 <div class="grid">
 
   <a href="app1.html">
     <div class="card">
-      <img src="https://via.placeholder.com/200x250">
-      <p>App 1</p>
+      <img src="https://via.placeholder.com/150">
+      <div class="title">App 1</div>
     </div>
   </a>
 
