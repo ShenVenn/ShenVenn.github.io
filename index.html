@@ -1,53 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Web của anh</title>
+  <title>Netflix Mini</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial;
-      background: #0f2027;
+      background: #141414;
       color: white;
+      font-family: Arial;
     }
 
-    .header {
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      padding: 60px;
-      text-align: center;
+    .navbar {
+      background: black;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: red;
     }
 
-    .content {
-      padding: 40px;
-      text-align: center;
+    .banner {
+      padding: 100px 20px;
+      background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') center/cover;
     }
 
-    button {
-      padding: 12px 25px;
-      border: none;
-      background: #00f2fe;
-      color: black;
-      font-size: 18px;
+    .banner h1 {
+      font-size: 50px;
+    }
+
+    .row {
+      margin: 20px;
+    }
+
+    .row h2 {
+      margin-bottom: 10px;
+    }
+
+    .movies {
+      display: flex;
+      overflow-x: auto;
+    }
+
+    .movie {
+      min-width: 200px;
+      margin-right: 10px;
+      transition: transform 0.3s;
+    }
+
+    .movie img {
+      width: 100%;
       border-radius: 10px;
-      cursor: pointer;
     }
 
-    button:hover {
-      background: #4facfe;
+    .movie:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>Web của anh 😎</h1>
-    <p>Nhìn có xịn hơn chưa?</p>
+  <div class="navbar">NETFLIX</div>
+
+  <div class="banner">
+    <h1>Phim nổi bật 😎</h1>
+    <p>Xem ngay đi anh</p>
   </div>
 
-  <div class="content">
-    <h2>Chào mừng!</h2>
-    <p>Đây là web riêng của tôi.</p>
-    <button onclick="alert('Hello anh 😏')">Bấm thử đi</button>
+  <div class="row">
+    <h2>🔥 Phổ biến</h2>
+    <div class="movies">
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>🎬 Hành động</h2>
+    <div class="movies">
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+    </div>
   </div>
 
 </body>
