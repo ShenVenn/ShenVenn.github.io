@@ -63,7 +63,6 @@ body {
   object-fit: cover;
 }
 
-/* ✨ viền trắng mềm */
 .icon::after {
   content: "";
   position: absolute;
@@ -73,34 +72,11 @@ body {
 
   /* viền base */
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.4);
+    inset 0 0 0 1px rgba(255,255,255,0.35);
 
-  /* tạo viền dày ở 2 góc */
-  background:
-    conic-gradient(
-      from 180deg at 0% 0%,
-      rgba(255,255,255,0.9),
-      rgba(255,255,255,0.5) 20%,
-      transparent 35%
-    ),
-    conic-gradient(
-      from 0deg at 100% 100%,
-      rgba(255,255,255,0.8),
-      rgba(255,255,255,0.4) 25%,
-      transparent 40%
-    );
-
-  /* CHỈ GIỮ PHẦN VIỀN */
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  padding: 2px;
 }
 
-/* ✨ lớp kính mờ */
+/* thêm layer riêng cho góc */
 .icon::before {
   content: "";
   position: absolute;
@@ -108,15 +84,17 @@ body {
   border-radius: 40px;
   pointer-events: none;
 
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,0.25),
-    transparent 40%,
-    transparent 60%,
-    rgba(255,255,255,0.1)
-  );
+  background:
+    conic-gradient(from 180deg at 0% 0%,
+      rgba(255,255,255,0.9),
+      transparent 30%
+    ),
+    conic-gradient(from 0deg at 100% 100%,
+      rgba(255,255,255,0.8),
+      transparent 35%
+    );
 
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 /* ===== TEXT ===== */
