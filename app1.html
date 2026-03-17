@@ -51,10 +51,10 @@ body {
   overflow: hidden;
   background: #000;
 
-  /* glow ngoài */
+  /* chiều sâu */
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.6),
-    0 0 25px rgba(255,255,255,0.08);
+    0 25px 60px rgba(0,0,0,0.6),
+    0 0 20px rgba(255,255,255,0.05);
 }
 
 .icon img {
@@ -63,20 +63,7 @@ body {
   object-fit: cover;
 }
 
-.icon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 40px;
-  pointer-events: none;
-
-  /* viền base */
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.35);
-
-}
-
-/* thêm layer riêng cho góc */
+/* ✨ lớp kính */
 .icon::before {
   content: "";
   position: absolute;
@@ -84,17 +71,29 @@ body {
   border-radius: 40px;
   pointer-events: none;
 
-  background:
-    conic-gradient(from 180deg at 0% 0%,
-      rgba(255,255,255,0.9),
-      transparent 30%
-    ),
-    conic-gradient(from 0deg at 100% 100%,
-      rgba(255,255,255,0.8),
-      transparent 35%
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.35) 0%,
+    rgba(255,255,255,0.12) 25%,
+    transparent 45%,
+    transparent 60%,
+    rgba(255,255,255,0.08) 75%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
 
-  opacity: 0.9;
+/* ✨ viền kính */
+.icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.5),
+    inset 0 2px 6px rgba(255,255,255,0.25),
+    inset 0 -3px 8px rgba(0,0,0,0.4);
 }
 
 /* ===== TEXT ===== */
