@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Store Clone</title>
+<title>App Store Style</title>
 
 <style>
 body {
@@ -15,22 +15,21 @@ body {
 
 /* ===== SIDEBAR ===== */
 .sidebar {
-  width: 220px;
-  background: #0d0d0d;
-  height: 100vh;
+  width: 230px;
+  background: #0b0b0b;
   padding: 20px;
+  height: 100vh;
   box-sizing: border-box;
 }
 
 .sidebar h2 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
 .sidebar p {
   color: #aaa;
-  margin: 10px 0;
-  cursor: pointer;
+  margin: 12px 0;
 }
 
 /* ===== MAIN ===== */
@@ -38,151 +37,185 @@ body {
   flex: 1;
 }
 
-/* ===== BANNER ===== */
-.banner {
-  padding: 40px;
+/* ===== HERO (GIỐNG APP STORE) ===== */
+.hero {
+  position: relative;
+  padding: 50px 40px;
   background: linear-gradient(120deg, #ff512f, #dd2476, #1e3c72);
 }
 
-.top {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(40px);
 }
 
-.top img {
-  width: 150px;
-  height: 150px;
-  border-radius: 30px;
+.hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.hero img {
+  width: 160px;
+  height: 160px;
+  border-radius: 35px;
   object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 .info h1 {
+  font-size: 36px;
   margin: 0;
-  font-size: 34px;
 }
 
-.info p {
-  margin: 5px 0;
+.info .sub {
   color: #ddd;
+  margin-top: 5px;
 }
 
-.btn {
-  margin-top: 10px;
-  padding: 10px 25px;
-  background: #007aff;
-  border-radius: 20px;
+.get-btn {
+  margin-top: 15px;
   display: inline-block;
+  background: #007aff;
+  padding: 10px 26px;
+  border-radius: 20px;
+  font-weight: 600;
 }
 
-/* ===== STATS ===== */
-.stats {
+/* ===== INFO BAR ===== */
+.info-bar {
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 25px 40px;
   background: #111;
 }
 
-.stats div {
+.info-box {
   text-align: center;
 }
 
-.stats p {
-  color: #aaa;
+.info-box h3 {
+  margin: 5px 0;
+}
+
+.info-box p {
+  color: #888;
+  margin: 0;
 }
 
 /* ===== PREVIEW ===== */
-.section {
-  padding: 20px;
+.preview {
+  padding: 30px 40px;
 }
 
-.images {
+.slider {
   display: flex;
   gap: 20px;
   overflow-x: auto;
 }
 
-.images img {
-  width: 320px;
-  height: 180px;
-  border-radius: 20px;
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider img {
+  width: 360px;
+  height: 200px;
+  border-radius: 25px;
   object-fit: cover;
 }
 
-/* scroll đẹp */
-.images::-webkit-scrollbar {
-  display: none;
+/* ===== TEXT ===== */
+.desc {
+  padding: 0 40px 40px;
+  color: #ccc;
+  line-height: 1.5;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ===== SIDEBAR ===== -->
+<!-- SIDEBAR -->
 <div class="sidebar">
-  <h2>📱 App Store</h2>
+  <h2>App Store</h2>
   <p>Today</p>
   <p>Games</p>
   <p>Apps</p>
   <p>Arcade</p>
   <hr>
   <p>Categories</p>
-  <p>Photo & Video</p>
   <p>Entertainment</p>
 </div>
 
-<!-- ===== MAIN ===== -->
+<!-- MAIN -->
 <div class="main">
 
-  <!-- Banner -->
-  <div class="banner">
-    <div class="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
 
       <div class="info">
         <h1>Play Together VNG</h1>
-        <p>Simulation</p>
-        <p>Free · In-App Purchases</p>
-        <div class="btn">GET</div>
+        <div class="sub">Simulation</div>
+        <div class="sub">Free · In-App Purchases</div>
+
+        <div class="get-btn">GET</div>
       </div>
     </div>
   </div>
 
-  <!-- Stats -->
-  <div class="stats">
-    <div>
+  <!-- INFO BAR -->
+  <div class="info-bar">
+    <div class="info-box">
       <h3>4.1 ⭐</h3>
       <p>545K Ratings</p>
     </div>
-    <div>
+
+    <div class="info-box">
       <h3>13+</h3>
       <p>Age</p>
     </div>
-    <div>
+
+    <div class="info-box">
       <h3>Simulation</h3>
       <p>Category</p>
     </div>
-    <div>
+
+    <div class="info-box">
       <h3>VNG</h3>
       <p>Developer</p>
     </div>
-    <div>
+
+    <div class="info-box">
       <h3>EN</h3>
       <p>Language</p>
     </div>
-    <div>
-      <h3>2.4GB</h3>
+
+    <div class="info-box">
+      <h3>2.4 GB</h3>
       <p>Size</p>
     </div>
   </div>
 
-  <!-- Preview -->
-  <div class="section">
-    <div class="images">
+  <!-- PREVIEW -->
+  <div class="preview">
+    <div class="slider">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
     </div>
+  </div>
+
+  <!-- DESC -->
+  <div class="desc">
+    Gặp gỡ bạn bè khắp nơi 🌍<br><br>
+    Đây là thế giới ảo nơi bạn có thể chơi cùng mọi người...
   </div>
 
 </div>
