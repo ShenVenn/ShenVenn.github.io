@@ -42,7 +42,7 @@ body {
   gap: 30px;
 }
 
-/* ===== ICON (VIỀN KÍNH CHUẨN) ===== */
+/* ===== ICON CHUẨN APP STORE ===== */
 .icon {
   width: 180px;
   height: 180px;
@@ -53,7 +53,7 @@ body {
 
   box-shadow:
     0 25px 60px rgba(0,0,0,0.6),
-    0 0 30px rgba(255,255,255,0.06);
+    0 0 30px rgba(255,255,255,0.05);
 }
 
 .icon img {
@@ -62,32 +62,31 @@ body {
   object-fit: cover;
 }
 
-/* ánh sáng kính */
+/* ✨ highlight kính CHỈ ở góc */
 .icon::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 40px;
+  pointer-events: none;
 
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.5) 0%,
-    rgba(255,255,255,0.15) 25%,
-    transparent 45%,
-    transparent 55%,
-    rgba(255,255,255,0.12) 75%,
-    rgba(255,255,255,0.35) 100%
-  );
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,255,255,0.45), transparent 35%),
+    radial-gradient(circle at 85% 85%, rgba(255,255,255,0.25), transparent 40%);
 }
 
-/* viền kính */
+/* ✨ viền kính + độ sâu */
 .icon::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 40px;
+  pointer-events: none;
 
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.25),
+    inset 0 2px 6px rgba(255,255,255,0.15),
+    inset 0 -2px 6px rgba(0,0,0,0.3);
 }
 
 /* ===== TEXT ===== */
