@@ -42,7 +42,7 @@ body {
   gap: 30px;
 }
 
-/* ===== ICON CHUẨN APP STORE ===== */
+/* ===== ICON STYLE TIKTOK ===== */
 .icon {
   width: 180px;
   height: 180px;
@@ -51,9 +51,10 @@ body {
   overflow: hidden;
   background: #000;
 
+  /* glow ngoài */
   box-shadow:
-    0 25px 60px rgba(0,0,0,0.6),
-    0 0 30px rgba(255,255,255,0.05);
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 25px rgba(255,255,255,0.08);
 }
 
 .icon img {
@@ -62,20 +63,7 @@ body {
   object-fit: cover;
 }
 
-/* ✨ highlight kính CHỈ ở góc */
-.icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 40px;
-  pointer-events: none;
-
-  background:
-    radial-gradient(circle at 15% 15%, rgba(255,255,255,0.45), transparent 35%),
-    radial-gradient(circle at 85% 85%, rgba(255,255,255,0.25), transparent 40%);
-}
-
-/* ✨ viền kính + độ sâu */
+/* ✨ viền trắng mềm */
 .icon::after {
   content: "";
   position: absolute;
@@ -84,9 +72,28 @@ body {
   pointer-events: none;
 
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.25),
-    inset 0 2px 6px rgba(255,255,255,0.15),
-    inset 0 -2px 6px rgba(0,0,0,0.3);
+    inset 0 0 0 1.2px rgba(255,255,255,0.35),
+    inset 0 2px 6px rgba(255,255,255,0.25),
+    inset 0 -4px 10px rgba(0,0,0,0.5);
+}
+
+/* ✨ lớp kính mờ */
+.icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.25),
+    transparent 40%,
+    transparent 60%,
+    rgba(255,255,255,0.1)
+  );
+
+  opacity: 0.6;
 }
 
 /* ===== TEXT ===== */
@@ -159,7 +166,6 @@ body {
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>App Store</h2>
   <p>Today</p>
@@ -171,10 +177,8 @@ body {
   <p>Entertainment</p>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-content">
 
@@ -192,40 +196,15 @@ body {
     </div>
   </div>
 
-  <!-- INFO BAR -->
   <div class="info-bar">
-    <div class="info-box">
-      <small>RATINGS</small>
-      <h3>4.1 ★</h3>
-    </div>
-
-    <div class="info-box">
-      <small>AGE</small>
-      <h3>13+</h3>
-    </div>
-
-    <div class="info-box">
-      <small>CATEGORY</small>
-      <h3>Simulation</h3>
-    </div>
-
-    <div class="info-box">
-      <small>DEVELOPER</small>
-      <h3>VNG</h3>
-    </div>
-
-    <div class="info-box">
-      <small>LANGUAGE</small>
-      <h3>EN</h3>
-    </div>
-
-    <div class="info-box">
-      <small>SIZE</small>
-      <h3>2.4 GB</h3>
-    </div>
+    <div class="info-box"><small>RATINGS</small><h3>4.1 ★</h3></div>
+    <div class="info-box"><small>AGE</small><h3>13+</h3></div>
+    <div class="info-box"><small>CATEGORY</small><h3>Simulation</h3></div>
+    <div class="info-box"><small>DEVELOPER</small><h3>VNG</h3></div>
+    <div class="info-box"><small>LANGUAGE</small><h3>EN</h3></div>
+    <div class="info-box"><small>SIZE</small><h3>2.4 GB</h3></div>
   </div>
 
-  <!-- PREVIEW -->
   <div class="preview">
     <div class="slider">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
@@ -234,7 +213,6 @@ body {
     </div>
   </div>
 
-  <!-- DESC -->
   <div class="desc">
     Gặp gỡ bạn bè khắp nơi 🌍<br><br>
     Đây là thế giới ảo nơi bạn có thể chơi cùng mọi người...
