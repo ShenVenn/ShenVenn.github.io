@@ -4,19 +4,51 @@
   <title>Web của anh</title>
   <style>
     body {
-      background: linear-gradient(to right, #667eea, #764ba2);
-      color: white;
-      text-align: center;
+      margin: 0;
       font-family: Arial;
-      padding-top: 100px;
+      background: #0f2027;
+      color: white;
     }
-    h1 {
-      font-size: 50px;
+
+    .header {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      padding: 60px;
+      text-align: center;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      background: #00f2fe;
+      color: black;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4facfe;
     }
   </style>
 </head>
+
 <body>
-  <h1>Xin chào 😎</h1>
-  <p>Đây là web đầu tiên của anh!</p>
+
+  <div class="header">
+    <h1>Web của anh 😎</h1>
+    <p>Nhìn có xịn hơn chưa?</p>
+  </div>
+
+  <div class="content">
+    <h2>Chào mừng!</h2>
+    <p>Đây là web riêng của tôi.</p>
+    <button onclick="alert('Hello anh 😏')">Bấm thử đi</button>
+  </div>
+
 </body>
 </html>
