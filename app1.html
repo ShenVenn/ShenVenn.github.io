@@ -40,17 +40,24 @@ body {
 /* nền blur từ icon */
 .hero-bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 60%;
   z-index: 0;
 
   background-size: cover;
   background-position: center;
 
-  /* sáng hơn */
-  filter: blur(80px) saturate(160%) brightness(1.1);
+  /* 👇 chỉnh lại cho mịn hơn */
+  filter: blur(75px) saturate(160%) brightness(1.15);
+  transform: scale(1.4);
+  opacity: 0.9;
 
-  transform: scale(1.6);
-  opacity: 0.85;
+  /* 👇 fade mượt hơn */
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent);
+  mask-image: linear-gradient(to right, black 60%, transparent);
 }
 
 /* nội dung nổi lên */
