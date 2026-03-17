@@ -1,167 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>App Detail</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Store Clone</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000;
+  color: white;
+  display: flex;
+}
 
-    /* ===== BANNER ===== */
-    .banner {
-      padding: 40px 20px;
-      background: linear-gradient(120deg, #ff512f, #dd2476, #1e3c72);
-    }
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  background: #0d0d0d;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-    .top {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 
-    .top img {
-      width: 130px;
-      height: 130px;
-      border-radius: 30px;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-    }
+.sidebar p {
+  color: #aaa;
+  margin: 10px 0;
+  cursor: pointer;
+}
 
-    .info h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+/* ===== MAIN ===== */
+.main {
+  flex: 1;
+}
 
-    .info p {
-      margin: 5px 0;
-      color: #ddd;
-    }
+/* ===== BANNER ===== */
+.banner {
+  padding: 40px;
+  background: linear-gradient(120deg, #ff512f, #dd2476, #1e3c72);
+}
 
-    .btn {
-      margin-top: 12px;
-      display: inline-block;
-      padding: 10px 22px;
-      background: #00c853;
-      border-radius: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-    }
+.top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-    /* ===== STATS ===== */
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      padding: 20px 0;
-      background: #111;
-      text-align: center;
-    }
+.top img {
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  object-fit: cover;
+}
 
-    .stats h3 {
-      margin: 5px 0;
-    }
+.info h1 {
+  margin: 0;
+  font-size: 34px;
+}
 
-    .stats p {
-      color: #aaa;
-      margin: 0;
-    }
+.info p {
+  margin: 5px 0;
+  color: #ddd;
+}
 
-    /* ===== IMAGE SLIDE ===== */
-    .section {
-      padding: 20px;
-    }
+.btn {
+  margin-top: 10px;
+  padding: 10px 25px;
+  background: #007aff;
+  border-radius: 20px;
+  display: inline-block;
+}
 
-    .images {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-    }
+/* ===== STATS ===== */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background: #111;
+}
 
-    .images::-webkit-scrollbar {
-      display: none;
-    }
+.stats div {
+  text-align: center;
+}
 
-    .images img {
-      width: 300px;
-      height: 170px;
-      border-radius: 15px;
-      object-fit: cover;
-    }
+.stats p {
+  color: #aaa;
+}
 
-    /* ===== TEXT ===== */
-    h2 {
-      margin-bottom: 10px;
-    }
+/* ===== PREVIEW ===== */
+.section {
+  padding: 20px;
+}
 
-    p {
-      color: #ccc;
-    }
+.images {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
 
-  </style>
+.images img {
+  width: 320px;
+  height: 180px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* scroll đẹp */
+.images::-webkit-scrollbar {
+  display: none;
+}
+</style>
 </head>
 
 <body>
 
-<!-- ===== BANNER ===== -->
-<div class="banner">
-  <div class="top">
-    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+  <h2>📱 App Store</h2>
+  <p>Today</p>
+  <p>Games</p>
+  <p>Apps</p>
+  <p>Arcade</p>
+  <hr>
+  <p>Categories</p>
+  <p>Photo & Video</p>
+  <p>Entertainment</p>
+</div>
 
-    <div class="info">
-      <h1>Defender Control</h1>
-      <p>Nhà phát hành: VNG 😏</p>
-      <a class="btn" href="#">Cài đặt</a>
+<!-- ===== MAIN ===== -->
+<div class="main">
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="top">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+
+      <div class="info">
+        <h1>Play Together VNG</h1>
+        <p>Simulation</p>
+        <p>Free · In-App Purchases</p>
+        <div class="btn">GET</div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ===== STATS ===== -->
-<div class="stats">
-  <div>
-    <h3>4.5 ⭐</h3>
-    <p>Đánh giá</p>
+  <!-- Stats -->
+  <div class="stats">
+    <div>
+      <h3>4.1 ⭐</h3>
+      <p>545K Ratings</p>
+    </div>
+    <div>
+      <h3>13+</h3>
+      <p>Age</p>
+    </div>
+    <div>
+      <h3>Simulation</h3>
+      <p>Category</p>
+    </div>
+    <div>
+      <h3>VNG</h3>
+      <p>Developer</p>
+    </div>
+    <div>
+      <h3>EN</h3>
+      <p>Language</p>
+    </div>
+    <div>
+      <h3>2.4GB</h3>
+      <p>Size</p>
+    </div>
   </div>
-  <div>
-    <h3>13+</h3>
-    <p>Tuổi</p>
-  </div>
-  <div>
-    <h3>2GB</h3>
-    <p>Dung lượng</p>
-  </div>
-</div>
 
-<!-- ===== ẢNH ===== -->
-<div class="section">
-  <h2>📸 Ảnh ứng dụng</h2>
-  <div class="images">
-    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-    <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+  <!-- Preview -->
+  <div class="section">
+    <div class="images">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+    </div>
   </div>
-</div>
 
-<!-- ===== MÔ TẢ ===== -->
-<div class="section">
-  <h2>📖 Giới thiệu</h2>
-  <p>
-    Đây là ứng dụng cực xịn 😏 giao diện giống App Store luôn.
-  </p>
-</div>
-
-<!-- ===== HƯỚNG DẪN ===== -->
-<div class="section">
-  <h2>📥 Hướng dẫn</h2>
-  <p>
-    1. Bấm tải  
-    2. Cài đặt  
-    3. Mở app  
-  </p>
 </div>
 
 </body>
