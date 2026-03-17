@@ -1,89 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Netflix Mini</title>
+  <title>Kho App của anh</title>
   <style>
     body {
-      margin: 0;
-      background: #141414;
+      background: #111;
       color: white;
       font-family: Arial;
     }
 
-    .navbar {
-      background: black;
-      padding: 15px;
-      font-size: 24px;
-      font-weight: bold;
-      color: red;
+    h1 {
+      text-align: center;
     }
 
-    .banner {
-      padding: 100px 20px;
-      background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') center/cover;
-    }
-
-    .banner h1 {
-      font-size: 50px;
-    }
-
-    .row {
-      margin: 20px;
-    }
-
-    .row h2 {
-      margin-bottom: 10px;
-    }
-
-    .movies {
+    .grid {
       display: flex;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .movie {
-      min-width: 200px;
-      margin-right: 10px;
-      transition: transform 0.3s;
-    }
-
-    .movie img {
-      width: 100%;
+    .card {
+      width: 200px;
+      margin: 15px;
+      background: #222;
       border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .movie:hover {
-      transform: scale(1.1);
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="navbar">NETFLIX</div>
+<h1>📱 Kho App</h1>
 
-  <div class="banner">
-    <h1>Phim nổi bật 😎</h1>
-    <p>Xem ngay đi anh</p>
-  </div>
+<div class="grid">
 
-  <div class="row">
-    <h2>🔥 Phổ biến</h2>
-    <div class="movies">
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+  <a href="app1.html">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x250">
+      <p>App 1</p>
     </div>
-  </div>
+  </a>
 
-  <div class="row">
-    <h2>🎬 Hành động</h2>
-    <div class="movies">
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
-      <div class="movie"><img src="https://via.placeholder.com/200x300"></div>
+  <a href="app2.html">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x250">
+      <p>App 2</p>
     </div>
-  </div>
+  </a>
+
+</div>
 
 </body>
 </html>
