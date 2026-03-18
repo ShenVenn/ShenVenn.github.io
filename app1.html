@@ -22,7 +22,6 @@ body {
   height: 100vh;
 }
 
-.sidebar h2 { font-size: 16px; }
 .sidebar p { color: #aaa; margin: 12px 0; }
 
 /* ===== MAIN ===== */
@@ -35,80 +34,25 @@ body {
 .hero {
   position: relative;
   padding: 40px 45px;
-  overflow: hidden;
   height: 200px;
-
-  background: radial-gradient(
-    ellipse at center,
-    #0a0a0a 0%,
-    #000 70%
-  );
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 70%);
 }
 
-/* ===== BLUR NỀN ===== */
 .hero-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-
   filter: blur(120px) saturate(180%) brightness(1.2);
   transform: scale(1.8);
   opacity: 0.9;
-
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    black 45%,
-    rgba(0,0,0,0.5) 65%,
-    transparent 90%
-  );
-  mask-image: radial-gradient(
-    ellipse at center,
-    black 45%,
-    rgba(0,0,0,0.5) 65%,
-    transparent 90%
-  );
-}
-
-/* overlay */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.15),
-    rgba(0,0,0,0.05),
-    rgba(0,0,0,0.2),
-    rgba(0,0,0,0.5)
-  );
-
-  z-index: 1;
-}
-
-/* ánh sáng */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at 32% 50%,
-    rgba(255,255,255,0.22),
-    rgba(255,255,255,0.1) 30%,
-    transparent 65%
-  );
-
-  z-index: 1;
 }
 
 /* ===== CONTENT ===== */
 .hero-content {
   position: relative;
   z-index: 2;
-
   display: flex;
   align-items: center;
   gap: 40px;
@@ -120,13 +64,8 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 40px;
-  position: relative;
   overflow: hidden;
   background: #000;
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,0.6),
-    0 0 20px rgba(255,255,255,0.05);
 }
 
 .icon img {
@@ -135,69 +74,53 @@ body {
   object-fit: cover;
 }
 
-.icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 40px;
-
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,0.35),
-    transparent 40%,
-    rgba(255,255,255,0.1)
-  );
-}
-
-.icon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 40px;
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.5),
-    inset 0 2px 6px rgba(255,255,255,0.25),
-    inset 0 -3px 8px rgba(0,0,0,0.4);
-}
-
 /* ===== TEXT ===== */
 .info h1 {
   font-size: 34px;
   margin: 0;
 }
 
-.sub {
-  color: #bbb;
-  margin-top: 6px;
-}
+.sub { color: #bbb; margin-top: 6px; }
 
 .get-btn {
   margin-top: 18px;
-  display: inline-block;
   background: #007aff;
   padding: 10px 28px;
   border-radius: 20px;
-  font-weight: 600;
-}
-
-/* ===== INFO BAR ===== */
-.info-bar {
-  display: flex;
-  gap: 60px;
-  padding: 25px 80px;
-  background: #0a0a0a;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  display: inline-block;
 }
 
 /* ===== PREVIEW ===== */
 .preview {
-  padding: 30px 80px; /* 👈 tạo khoảng trống cho nút */
+  padding: 30px 100px;
+  overflow: hidden;
 }
 
 .slider-wrapper {
   position: relative;
-  overflow: visible; /* 👈 QUAN TRỌNG */
+  overflow: visible;
+}
+
+/* fade 2 bên */
+.slider-wrapper::before,
+.slider-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.slider-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #000, transparent);
+}
+
+.slider-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #000, transparent);
 }
 
 .slider {
@@ -208,17 +131,13 @@ body {
 
 .slider img {
   width: calc((100% - 40px) / 3);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   border-radius: 20px;
   object-fit: cover;
   flex-shrink: 0;
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.5),
-    0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* ===== NÚT CHUẨN APP STORE ===== */
+/* ===== NÚT ===== */
 .nav {
   position: absolute;
   top: 50%;
@@ -232,43 +151,22 @@ body {
 
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
-
   color: white;
-  font-size: 20px;
   cursor: pointer;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   opacity: 0;
-  transition: all 0.25s ease;
+  transition: 0.25s;
 }
 
-/* vị trí ngoài ảnh */
-.nav.left {
-  left: -50px;
-}
+.nav.left { left: -60px; }
+.nav.right { right: -60px; }
 
-.nav.right {
-  right: -50px;
-}
-
-/* hover mới hiện */
 .slider-wrapper:hover .nav {
   opacity: 1;
 }
 
-/* hover hiệu ứng */
 .nav:hover {
-  background: rgba(255,255,255,0.18);
-  transform: translateY(-50%) scale(1.05);
-}
-
-/* ===== DESC ===== */
-.desc {
-  padding: 0 80px 40px;
-  color: #ccc;
+  background: rgba(255,255,255,0.2);
 }
 </style>
 </head>
@@ -276,7 +174,7 @@ body {
 <body>
 
 <div class="sidebar">
-  <h2>App Store</h2>
+  <p>App Store</p>
   <p>Today</p>
   <p>Games</p>
   <p>Apps</p>
@@ -295,13 +193,10 @@ body {
     <div class="info">
       <h1 id="appName">Windows Defender</h1>
       <div class="sub">Utility</div>
-      <div class="sub">Free</div>
       <div class="get-btn">GET</div>
     </div>
   </div>
 </div>
-
-<div class="info-bar"></div>
 
 <div class="preview">
   <div class="slider-wrapper">
@@ -324,6 +219,14 @@ body {
 </div>
 
 <script>
+function setApp(icon, name) {
+  document.getElementById("appIcon").src = icon;
+  document.getElementById("appName").innerText = name;
+  document.getElementById("heroBg").style.backgroundImage = `url(${icon})`;
+}
+
+setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender");
+
 let index = 0;
 
 function slide(direction) {
