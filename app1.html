@@ -186,7 +186,7 @@ body {
 
 .slider-wrapper {
   position: relative;
-  overflow: visible; /* CHỈ SỬA DÒNG NÀY */
+  overflow: hidden; /* bắt buộc */
 }
 
 .slider {
@@ -222,8 +222,15 @@ body {
   cursor: pointer;
 }
 
-.nav.left { left: -20px; }   /* sửa */
-.nav.right { right: -20px; } /* sửa */
+.nav.left {
+  left: 10px;
+  transform: translate(-120%, -50%);
+}
+
+.nav.right {
+  right: 10px;
+  transform: translate(120%, -50%);
+}
 
 /* ===== DESC ===== */
 .desc {
