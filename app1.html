@@ -216,7 +216,7 @@ body {
   transform: translateY(-50%);
   z-index: 5;
 
-  width: 40px;
+  width: 60px;
   height: 60px;
 
   display: flex;
@@ -226,33 +226,49 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-
-  transition: all 0.25s ease;
 }
 
+/* vị trí trái phải */
 .nav.left {
-  left: 12px;
-  top: 30%;
-
+  left: 10px;
 }
 
 .nav.right {
-  right: 12px;
-  top: 48%;
+  right: 10px;
 }
 
-/* mũi tên */
-.nav span {
-  font-size: 40px;
-  color: rgba(255,255,255,0.6);
-  transition: all 0.25s ease;
-}
+/* ===== KHUNG RIÊNG ===== */
+.nav::before {
+  content: "";
+  position: absolute;
 
-/* hover */
-.nav:hover {
+  width: 70px;
+  height: 55px;
+
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-radius: 18px;
+
+  opacity: 0;
+  transition: all 0.25s ease;
+
+  /* 👇 chỉnh khung tại đây (KHÔNG ảnh hưởng mũi tên) */
+  transform: translateY(2px); /* chỉnh lên xuống */
+}
+
+/* hover mới hiện */
+.nav:hover::before {
+  opacity: 1;
+}
+
+/* ===== MŨI TÊN ===== */
+.nav span {
+  position: relative;
+  z-index: 1;
+
+  font-size: 40px;
+  color: rgba(255,255,255,0.6);
+  transition: 0.25s;
 }
 
 .nav:hover span {
