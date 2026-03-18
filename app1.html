@@ -182,17 +182,14 @@ body {
 
 /* ===== PREVIEW ===== */
 .preview {
-  position: relative;
-  padding: 30px 0;
-  display: flex;
-  justify-content: center;
+  position: relative; /* 👈 thêm */
+  padding: 30px 0px;
 }
 
 .slider-wrapper {
   position: relative;
   overflow: hidden;
-  margin: 0 auto;     
-  max-width: 1100px;  
+  margin: 0 60px;
 }
 
 .slider {
@@ -218,28 +215,22 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-
-  width: 55px;          /* 👈 to hơn */
-  height: 55px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
-
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-
+  background: rgba(255,255,255,0.1);
   color: white;
-  font-size: 28px;      /* 👈 mũi tên to */
+  font-size: 22px;
   cursor: pointer;
-
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
 }
 
 .nav.left {
-  left: -25px;
+  left: 10px;
 }
 
 .nav.right {
-  right: -25px;
+  right: 10px;
 }
 
 /* ===== DESC ===== */
