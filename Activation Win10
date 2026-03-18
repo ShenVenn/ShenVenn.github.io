@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Store Style</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000;
+  color: white;
+  display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 230px;
+  background: #0b0b0b;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 { font-size: 16px; }
+.sidebar p { color: #aaa; margin: 12px 0; }
+
+/* ===== MAIN ===== */
+.main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 40px 45px;
+  overflow: hidden;
+  height: 200px;
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 70%);
+}
+
+/* ===== BLUR NỀN ===== */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(120px) saturate(180%) brightness(1.2);
+  transform: scale(1.8);
+  opacity: 0.9;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.05),
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.5)
+  );
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 32% 50%,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.1) 30%,
+    transparent 65%
+  );
+  z-index: 1;
+}
+
+/* ===== CONTENT ===== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 100%;
+}
+
+/* ===== ICON ===== */
+.icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6),
+              0 0 20px rgba(255,255,255,0.05);
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.35),
+    transparent 40%,
+    rgba(255,255,255,0.1)
+  );
+}
+
+.icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.5),
+    inset 0 2px 6px rgba(255,255,255,0.25),
+    inset 0 -3px 8px rgba(0,0,0,0.4);
+}
+
+/* ===== TEXT ===== */
+.info h1 {
+  font-size: 34px;
+  margin: 0;
+}
+
+.sub {
+  color: #bbb;
+  margin-top: 6px;
+}
+
+.get-btn {
+  margin-top: 18px;
+  display: inline-block;
+  background: #007aff;
+  padding: 10px 28px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== INFO BAR ===== */
+.info-bar {
+  display: flex;
+  justify-content: space-between; /* 👉 dàn đều như App Store */
+  align-items: center;
+  padding: 30px 80px;
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* từng cột */
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 👉 căn giữa nội dung */
+  justify-content: center;
+  min-width: 90px;
+}
+
+/* chữ nhỏ trên */
+.info-box small {
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* chữ chính */
+.info-box h3 {
+  margin: 6px 0 0;
+  font-size: 22px;   /* 👉 to hơn cho giống ảnh */
+  font-weight: 600;
+}
+
+/* dòng phụ (VD: Years, GB, Action...) */
+.info-box span {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* ===== PREVIEW ===== */
+.preview {
+  position: relative;
+  padding: 30px 0;
+  margin-top: -20px; /* 👈 kéo lên */
+}
+
+.slider-wrapper {
+  position: relative;
+  margin: 0 60px;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.slider img {
+  width: calc((100% - 40px) / 3);
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: top;
+  flex-shrink: 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5),
+              0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ===== NÚT SLIDE ===== */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav.left { left: 0; }
+.nav.right { right: 0; }
+
+.nav span {
+  font-size: 40px;
+  color: rgba(255,255,255,0.6);
+}
+
+.nav:hover span {
+  color: #fff;
+}
+
+/* ===== DESC ===== */
+.desc {
+  padding: 0 60px 40px;
+  color: #ccc;
+  line-height: 1.6;
+}
+.divider {
+  height: 1px;
+  margin: 20px 60px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+}
+.title-glow {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+
+  text-shadow:
+    0 0 2px rgba(255,255,255,0.6),
+    0 0 4px rgba(255,255,255,0.4),
+    0 0 8px rgba(255,255,255,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>App Store</h2>
+  <p>Today</p>
+  <p>Games</p>
+  <p>Apps</p>
+  <p>Arcade</p>
+  <hr>
+  <p>Categories</p>
+</div>
+
+<div class="main">
+
+<div class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+
+  <div class="hero-content">
+    <div class="icon">
+      <img id="appIcon" src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+    </div>
+
+    <div class="info">
+      <h1 id="appName">Windows Defender</h1>
+      <div class="sub">Vô hiệu hóa Windows Defender</div>
+      <div class="sub">Free · In-App Purchases</div>
+
+      <!-- 🔥 GIỮ NGUYÊN NÚT -->
+      <div class="get-btn" onclick="downloadApp()">GET</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="info-bar">
+
+  <div class="info-box">
+    <small>80K RATINGS</small>
+    <h3>4.6 ★</h3>
+  </div>
+
+  <div class="info-box">
+    <small>AGES</small>
+    <h3>10+</h3>
+    <span>Years</span>
+  </div>
+
+  <div class="info-box">
+    <small>CATEGORY</small>
+    <h3>ACTION</h3>
+  </div>
+
+  <div class="info-box">
+    <small>DEVELOPER</small>
+    <h3>WINDOWS</h3>
+    <span>CORPORATION</span>
+  </div>
+
+  <div class="info-box">
+    <small>LANGUAGE</small>
+    <h3>EN</h3>
+    <span>+ 8 More</span>
+  </div>
+
+  <div class="info-box">
+    <small>SIZE</small>
+    <h3>446</h3>
+    <span>KB</span>
+  </div>
+
+</div>
+
+<div class="preview">
+
+  <button class="nav left" onclick="slide(-1)">
+    <span>‹</span>
+  </button>
+
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+      <img src="https://i.ibb.co/dXL6YnV/Huong-dan-bat-hoac-tat-Windows-Defender-2.jpg">
+      <img src="https://i.ibb.co/FbryZ35p/Huong-dan-bat-hoac-tat-Windows-Defender-2.png">
+      <img src="https://i.ibb.co/Z1z8YsKy/Huong-dan-bat-hoac-tat-Windows-Defender-2.png">
+      <img src="https://i.ibb.co/BHVtb9qw/2003-wd1.jpg">
+    </div>
+  </div>
+
+  <button class="nav right" onclick="slide(1)">
+    <span>›</span>
+  </button>
+
+</div>
+<div class="divider"></div>
+<div class="desc">
+  <span class="title-glow">GIỚI THIỆU & HƯỚNG DẪN TẢI & SỬ DỤNG</span><br><br>
+  - Chọn "dControl"<br>
+  + Disable = tắt Defender<br>
+  + Enable = bật Defender<br>
+</div>
+
+</div>
+
+<script>
+function setApp(icon, name) {
+  document.getElementById("appIcon").src = icon;
+  document.getElementById("appName").innerText = name;
+  document.getElementById("heroBg").style.backgroundImage = `url(${icon})`;
+}
+
+setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender");
+
+/* 🔥 DOWNLOAD */
+function downloadApp() {
+  window.location.href = "https://drive.google.com/uc?export=download&id=1dLhRHEzccMfRAq_dYzMNWLp9Lu9hTJls";
+}
+
+/* ===== SLIDER ===== */
+let index = 0;
+
+function updateNav() {
+  const left = document.querySelector(".nav.left");
+  const right = document.querySelector(".nav.right");
+  const total = document.getElementById("slider").children.length;
+
+  left.style.display = index === 0 ? "none" : "flex";
+  right.style.display = index >= total - 3 ? "none" : "flex";
+}
+
+function slide(dir) {
+  const slider = document.getElementById("slider");
+  const total = slider.children.length;
+
+  index += dir;
+
+  if (index < 0) index = 0;
+  if (index > total - 3) index = total - 3;
+
+  const w = slider.children[0].offsetWidth + 20;
+  slider.style.transform = `translateX(-${index * w}px)`;
+
+  updateNav();
+}
+
+updateNav();
+</script>
+
+</body>
+</html>
