@@ -182,6 +182,7 @@ body {
 
 /* ===== PREVIEW ===== */
 .preview {
+  position: relative; /* 👈 thêm */
   padding: 30px 0px;
 }
 
@@ -208,12 +209,12 @@ body {
               0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* ===== NÚT (CHỈ SỬA VỊ TRÍ) ===== */
+/* ===== NÚT ===== */
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 5;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -225,11 +226,11 @@ body {
 }
 
 .nav.left {
-  left: -30px;
+  left: 20px;
 }
 
 .nav.right {
-  right: -30px;
+  right: 20px;
 }
 
 /* ===== DESC ===== */
@@ -285,10 +286,10 @@ body {
 
 <!-- PREVIEW -->
 <div class="preview">
+
+  <button class="nav left" onclick="slide(-1)">‹</button>
+
   <div class="slider-wrapper">
-
-    <button class="nav left" onclick="slide(-1)">‹</button>
-
     <div class="slider" id="slider">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
@@ -296,10 +297,10 @@ body {
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
       <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
     </div>
-
-    <button class="nav right" onclick="slide(1)">›</button>
-
   </div>
+
+  <button class="nav right" onclick="slide(1)">›</button>
+
 </div>
 
 <!-- DESC -->
@@ -317,10 +318,8 @@ function setApp(icon, name) {
   bg.style.backgroundImage = `url(${icon})`;
 }
 
-/* load */
 setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender");
 
-/* slider */
 let index = 0;
 
 function slide(direction) {
