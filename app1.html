@@ -186,7 +186,7 @@ body {
 
 .slider-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* phải là cái này */
   margin: 0 60px;
 }
 
@@ -194,6 +194,7 @@ body {
   display: flex;
   gap: 20px;
   transition: transform 0.4s ease;
+  padding: 0 20px; /* thêm dòng này */
 }
 
 .slider img {
