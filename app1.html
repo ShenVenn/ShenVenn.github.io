@@ -154,27 +154,41 @@ body {
 /* ===== INFO BAR ===== */
 .info-bar {
   display: flex;
-  justify-content: center;   /* 👉 căn giữa toàn bộ */
+  justify-content: space-between; /* 👉 dàn đều như App Store */
   align-items: center;
-  gap: 80px;                 /* 👉 giãn đều đẹp hơn */
-  padding: 30px 20px;
+  padding: 30px 80px;
   background: #0a0a0a;
   border-top: 1px solid rgba(255,255,255,0.05);
-  text-align: center;        /* 👉 chữ nằm giữa từng box */
 }
 
-/* chữ nhỏ */
+/* từng cột */
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 👉 căn giữa nội dung */
+  justify-content: center;
+  min-width: 90px;
+}
+
+/* chữ nhỏ trên */
 .info-box small {
-  color: #888;
-  font-size: 13px;           /* 👉 to hơn */
+  color: #777;
+  font-size: 11px;
   letter-spacing: 1px;
 }
 
 /* chữ chính */
 .info-box h3 {
-  margin: 8px 0 0;
-  font-size: 22px;           /* 👉 to rõ hơn */
+  margin: 6px 0 0;
+  font-size: 22px;   /* 👉 to hơn cho giống ảnh */
   font-weight: 600;
+}
+
+/* dòng phụ (VD: Years, GB, Action...) */
+.info-box span {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
 }
 
 /* ===== PREVIEW ===== */
@@ -282,12 +296,41 @@ body {
 </div>
 
 <div class="info-bar">
-  <div class="info-box"><small>RATINGS</small><h3>4.6 ★</h3></div>
-  <div class="info-box"><small>AGE</small><h3>13+</h3></div>
-  <div class="info-box"><small>CATEGORY</small><h3>Utility</h3></div>
-  <div class="info-box"><small>DEVELOPER</small><h3>Microsoft</h3></div>
-  <div class="info-box"><small>LANGUAGE</small><h3>EN</h3></div>
-  <div class="info-box"><small>SIZE</small><h3>1.9 GB</h3></div>
+
+  <div class="info-box">
+    <small>80K RATINGS</small>
+    <h3>4.6 ★</h3>
+  </div>
+
+  <div class="info-box">
+    <small>AGES</small>
+    <h3>13+</h3>
+    <span>Years</span>
+  </div>
+
+  <div class="info-box">
+    <small>CATEGORY</small>
+    <h3>Action</h3>
+  </div>
+
+  <div class="info-box">
+    <small>DEVELOPER</small>
+    <h3>VNG</h3>
+    <span>CORPORATION</span>
+  </div>
+
+  <div class="info-box">
+    <small>LANGUAGE</small>
+    <h3>EN</h3>
+    <span>+ 8 More</span>
+  </div>
+
+  <div class="info-box">
+    <small>SIZE</small>
+    <h3>1.9</h3>
+    <span>GB</span>
+  </div>
+
 </div>
 
 <div class="preview">
