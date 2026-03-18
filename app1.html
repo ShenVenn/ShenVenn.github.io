@@ -21,20 +21,13 @@ body {
   height: 100vh;
 }
 
-.sidebar h2 {
-  font-size: 16px;
-}
-
-.sidebar p {
-  color: #aaa;
-  margin: 12px 0;
-}
+.sidebar h2 { font-size: 16px; }
+.sidebar p { color: #aaa; margin: 12px 0; }
 
 /* ===== MAIN ===== */
 .main {
   flex: 1;
   overflow-y: auto;
-  overflow-x: visible; 
 }
 
 /* ===== HERO ===== */
@@ -43,7 +36,7 @@ body {
   padding: 40px 45px;
   overflow: hidden;
   height: 200px;
-  background: radial-gradient( ellipse at center, #0a0a0a 0%, #000 70% );
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 70%);
 }
 
 /* ===== BLUR NỀN ===== */
@@ -55,8 +48,6 @@ body {
   filter: blur(120px) saturate(180%) brightness(1.2);
   transform: scale(1.8);
   opacity: 0.9;
-  -webkit-mask-image: radial-gradient( ellipse at center, black 45%, rgba(0,0,0,0.5) 65%, transparent 90% );
-  mask-image: radial-gradient( ellipse at center, black 45%, rgba(0,0,0,0.5) 65%, transparent 90% );
 }
 
 /* overlay */
@@ -183,29 +174,34 @@ body {
 /* ===== PREVIEW ===== */
 .preview {
   position: relative;
-  padding: 30px 0px;
+  padding: 30px 0;
 }
 
+/* 🔥 FIX BO GÓC */
 .slider-wrapper {
   position: relative;
-  overflow: hidden; /* 👈 THÊM DÒNG NÀY */
   margin: 0 60px;
-  border-radius: 25px; /* 👈 bo góc toàn khung */
+  border-radius: 25px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
 }
 
 .slider {
   display: flex;
   gap: 20px;
+  padding: 20px;
   transition: transform 0.4s ease;
 }
 
 .slider img {
   width: calc((100% - 40px) / 3);
   aspect-ratio: 16 / 9;
-  height: auto;
-  border-radius: 20px;
-  object-fit: contain;
-  background: #000;
+  border-radius: 18px;
+
+  object-fit: cover;
+  object-position: top;
+
   flex-shrink: 0;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5),
               0 0 0 1px rgba(255,255,255,0.05);
@@ -217,47 +213,22 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-
   width: 60px;
   height: 60px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: transparent;
   border: none;
   cursor: pointer;
 }
 
-.nav.left { left: 0px; }
-.nav.right { right: 0px; }
+.nav.left { left: 0; }
+.nav.right { right: 0; }
 
-/* ===== KHUNG ===== */
-.nav::before {
-  content: "";
-  position: absolute;
-  width: 40px;
-  height: 60px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  opacity: 0;
-  transition: all 0.25s ease;
-  transform: translate(-1px, 2px);
-}
-
-.nav:hover::before {
-  opacity: 1;
-}
-
-/* ===== MŨI TÊN ===== */
 .nav span {
-  position: relative;
-  z-index: 1;
   font-size: 40px;
   color: rgba(255,255,255,0.6);
-  transition: 0.25s;
 }
 
 .nav:hover span {
@@ -344,8 +315,7 @@ body {
 function setApp(icon, name) {
   document.getElementById("appIcon").src = icon;
   document.getElementById("appName").innerText = name;
-  const bg = document.getElementById("heroBg");
-  bg.style.backgroundImage = `url(${icon})`;
+  document.getElementById("heroBg").style.backgroundImage = `url(${icon})`;
 }
 
 setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender");
@@ -353,26 +323,25 @@ setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender")
 let index = 0;
 
 function updateNav() {
-  const leftBtn = document.querySelector(".nav.left");
-  const rightBtn = document.querySelector(".nav.right");
-  const slider = document.getElementById("slider");
-  const total = slider.children.length;
+  const left = document.querySelector(".nav.left");
+  const right = document.querySelector(".nav.right");
+  const total = document.getElementById("slider").children.length;
 
-  leftBtn.style.display = index === 0 ? "none" : "flex";
-  rightBtn.style.display = index >= total - 3 ? "none" : "flex";
+  left.style.display = index === 0 ? "none" : "flex";
+  right.style.display = index >= total - 3 ? "none" : "flex";
 }
 
-function slide(direction) {
+function slide(dir) {
   const slider = document.getElementById("slider");
   const total = slider.children.length;
 
-  index += direction;
+  index += dir;
 
   if (index < 0) index = 0;
   if (index > total - 3) index = total - 3;
 
-  const width = slider.children[0].offsetWidth + 20;
-  slider.style.transform = `translateX(-${index * width}px)`;
+  const w = slider.children[0].offsetWidth + 20;
+  slider.style.transform = `translateX(-${index * w}px)`;
 
   updateNav();
 }
