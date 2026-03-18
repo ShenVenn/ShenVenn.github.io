@@ -185,29 +185,19 @@ body {
 .info-bar {
   display: flex;
   gap: 60px;
-  padding: 25px 60px;
+  padding: 25px 80px;
   background: #0a0a0a;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.info-box small {
-  color: #777;
-  font-size: 11px;
-}
-
-.info-box h3 {
-  margin: 6px 0 0;
-  font-size: 18px;
-}
-
-/* ===== PREVIEW (FIX 3 ẢNH + NÚT) ===== */
+/* ===== PREVIEW ===== */
 .preview {
-  padding: 30px 60px;
+  padding: 30px 80px; /* 👈 tạo khoảng trống cho nút */
 }
 
 .slider-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* 👈 QUAN TRỌNG */
 }
 
 .slider {
@@ -219,17 +209,16 @@ body {
 .slider img {
   width: calc((100% - 40px) / 3);
   aspect-ratio: 16 / 9;
-  height: auto;
   border-radius: 20px;
   object-fit: cover;
   flex-shrink: 0;
+
   box-shadow:
     0 10px 25px rgba(0,0,0,0.5),
     0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* nút */
-/* ===== NÚT MŨI TÊN KIỂU APP STORE ===== */
+/* ===== NÚT CHUẨN APP STORE ===== */
 .nav {
   position: absolute;
   top: 50%;
@@ -238,9 +227,9 @@ body {
 
   width: 34px;
   height: 70px;
+  border-radius: 12px;
   border: none;
 
-  border-radius: 12px;
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
 
@@ -256,21 +245,21 @@ body {
   transition: all 0.25s ease;
 }
 
-/* hiện khi hover */
+/* vị trí ngoài ảnh */
+.nav.left {
+  left: -50px;
+}
+
+.nav.right {
+  right: -50px;
+}
+
+/* hover mới hiện */
 .slider-wrapper:hover .nav {
   opacity: 1;
 }
 
-/* vị trí sát mép */
-.nav.left {
-  left: 5px;
-}
-
-.nav.right {
-  right: 5px;
-}
-
-/* hover sáng lên */
+/* hover hiệu ứng */
 .nav:hover {
   background: rgba(255,255,255,0.18);
   transform: translateY(-50%) scale(1.05);
@@ -278,9 +267,8 @@ body {
 
 /* ===== DESC ===== */
 .desc {
-  padding: 0 60px 40px;
+  padding: 0 80px 40px;
   color: #ccc;
-  line-height: 1.6;
 }
 </style>
 </head>
@@ -292,80 +280,50 @@ body {
   <p>Today</p>
   <p>Games</p>
   <p>Apps</p>
-  <p>Arcade</p>
-  <hr>
-  <p>Categories</p>
 </div>
 
 <div class="main">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-bg" id="heroBg"></div>
+<div class="hero">
+  <div class="hero-bg" id="heroBg"></div>
 
-    <div class="hero-content">
-      <div class="icon">
-        <img id="appIcon" src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-      </div>
+  <div class="hero-content">
+    <div class="icon">
+      <img id="appIcon" src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+    </div>
 
-      <div class="info">
-        <h1 id="appName">Windows Defender</h1>
-        <div class="sub">Utility</div>
-        <div class="sub">Free · In-App Purchases</div>
-        <div class="get-btn">GET</div>
-      </div>
+    <div class="info">
+      <h1 id="appName">Windows Defender</h1>
+      <div class="sub">Utility</div>
+      <div class="sub">Free</div>
+      <div class="get-btn">GET</div>
     </div>
   </div>
+</div>
 
-  <!-- INFO -->
-  <div class="info-bar">
-    <div class="info-box"><small>RATINGS</small><h3>4.6 ★</h3></div>
-    <div class="info-box"><small>AGE</small><h3>13+</h3></div>
-    <div class="info-box"><small>CATEGORY</small><h3>Utility</h3></div>
-    <div class="info-box"><small>DEVELOPER</small><h3>Microsoft</h3></div>
-    <div class="info-box"><small>LANGUAGE</small><h3>EN</h3></div>
-    <div class="info-box"><small>SIZE</small><h3>1.9 GB</h3></div>
-  </div>
+<div class="info-bar"></div>
 
-  <!-- PREVIEW -->
-  <div class="preview">
-    <div class="slider-wrapper">
+<div class="preview">
+  <div class="slider-wrapper">
 
-      <button class="nav left" onclick="slide(-1)">‹</button>
+    <button class="nav left" onclick="slide(-1)">❮</button>
 
-      <div class="slider" id="slider">
-        <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-        <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-        <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-        <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-        <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-      </div>
-
-      <button class="nav right" onclick="slide(1)">›</button>
-
+    <div class="slider" id="slider">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
     </div>
-  </div>
 
-  <!-- DESC -->
-  <div class="desc">
-    Đây là phần mô tả ứng dụng giống App Store 😳
+    <button class="nav right" onclick="slide(1)">❯</button>
+
   </div>
+</div>
 
 </div>
 
 <script>
-function setApp(icon, name) {
-  document.getElementById("appIcon").src = icon;
-  document.getElementById("appName").innerText = name;
-
-  const bg = document.getElementById("heroBg");
-  bg.style.backgroundImage = `url(${icon})`;
-}
-
-/* load */
-setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender");
-
-/* slider */
 let index = 0;
 
 function slide(direction) {
