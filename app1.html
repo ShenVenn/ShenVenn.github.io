@@ -182,7 +182,7 @@ body {
 
 /* ===== PREVIEW ===== */
 .preview {
-  position: relative; /* 👈 thêm */
+  position: relative;
   padding: 30px 0px;
 }
 
@@ -223,11 +223,19 @@ body {
   align-items: center;
   justify-content: center;
 
-  background: transparent; /* 👈 bình thường không có nền */
+  background: transparent;
   border: none;
   cursor: pointer;
 
   transition: all 0.25s ease;
+}
+
+.nav.left {
+  left: 20px;
+}
+
+.nav.right {
+  right: 20px;
 }
 
 /* mũi tên */
@@ -237,14 +245,13 @@ body {
   transition: all 0.25s ease;
 }
 
-/* hover hiện khung */
+/* hover */
 .nav:hover {
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(10px);
-  border-radius: 16px; /* 👈 bo vuông giống Apple */
+  border-radius: 16px;
 }
 
-/* hover thì mũi tên sáng hơn */
 .nav:hover span {
   color: #fff;
 }
@@ -272,7 +279,6 @@ body {
 
 <div class="main">
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-bg" id="heroBg"></div>
 
@@ -290,7 +296,6 @@ body {
   </div>
 </div>
 
-<!-- INFO -->
 <div class="info-bar">
   <div class="info-box"><small>RATINGS</small><h3>4.6 ★</h3></div>
   <div class="info-box"><small>AGE</small><h3>13+</h3></div>
@@ -300,12 +305,11 @@ body {
   <div class="info-box"><small>SIZE</small><h3>1.9 GB</h3></div>
 </div>
 
-<!-- PREVIEW -->
 <div class="preview">
 
   <button class="nav left" onclick="slide(-1)">
-  <span>‹</span>
-</button>
+    <span>‹</span>
+  </button>
 
   <div class="slider-wrapper">
     <div class="slider" id="slider">
@@ -318,12 +322,11 @@ body {
   </div>
 
   <button class="nav right" onclick="slide(1)">
-  <span>›</span>
-</button>
+    <span>›</span>
+  </button>
 
 </div>
 
-<!-- DESC -->
 <div class="desc">
   Đây là phần mô tả ứng dụng giống App Store 😳
 </div>
