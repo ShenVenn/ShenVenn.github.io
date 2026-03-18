@@ -21,14 +21,8 @@ body {
   height: 100vh;
 }
 
-.sidebar h2 {
-  font-size: 16px;
-}
-
-.sidebar p {
-  color: #aaa;
-  margin: 12px 0;
-}
+.sidebar h2 { font-size: 16px; }
+.sidebar p { color: #aaa; margin: 12px 0; }
 
 /* ===== MAIN ===== */
 .main {
@@ -46,7 +40,6 @@ body {
   background: radial-gradient( ellipse at center, #0a0a0a 0%, #000 70% );
 }
 
-/* ===== BLUR NỀN ===== */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -56,40 +49,16 @@ body {
   transform: scale(1.8);
   opacity: 0.9;
   -webkit-mask-image: radial-gradient( ellipse at center, black 45%, rgba(0,0,0,0.5) 65%, transparent 90% );
-  mask-image: radial-gradient( ellipse at center, black 45%, rgba(0,0,0,0.5) 65%, transparent 90% );
 }
 
-/* overlay */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.15),
-    rgba(0,0,0,0.05),
-    rgba(0,0,0,0.2),
-    rgba(0,0,0,0.5)
-  );
+  background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.15), rgba(0,0,0,0.05), rgba(0,0,0,0.2), rgba(0,0,0,0.5));
   z-index: 1;
 }
 
-/* ánh sáng */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 32% 50%,
-    rgba(255,255,255,0.22),
-    rgba(255,255,255,0.1) 30%,
-    transparent 65%
-  );
-  z-index: 1;
-}
-
-/* ===== CONTENT ===== */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -99,16 +68,11 @@ body {
   height: 100%;
 }
 
-/* ===== ICON ===== */
 .icon {
   width: 200px;
   height: 200px;
   border-radius: 40px;
-  position: relative;
   overflow: hidden;
-  background: #000;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.6),
-              0 0 20px rgba(255,255,255,0.05);
 }
 
 .icon img {
@@ -117,77 +81,24 @@ body {
   object-fit: cover;
 }
 
-.icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 40px;
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,0.35),
-    transparent 40%,
-    rgba(255,255,255,0.1)
-  );
-}
-
-.icon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 40px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.5),
-    inset 0 2px 6px rgba(255,255,255,0.25),
-    inset 0 -3px 8px rgba(0,0,0,0.4);
-}
-
-/* ===== TEXT ===== */
-.info h1 {
-  font-size: 34px;
-  margin: 0;
-}
-
-.sub {
-  color: #bbb;
-  margin-top: 6px;
-}
+.info h1 { font-size: 34px; margin: 0; }
+.sub { color: #bbb; margin-top: 6px; }
 
 .get-btn {
   margin-top: 18px;
-  display: inline-block;
   background: #007aff;
   padding: 10px 28px;
   border-radius: 20px;
-  font-weight: 600;
-}
-
-/* ===== INFO BAR ===== */
-.info-bar {
-  display: flex;
-  gap: 60px;
-  padding: 25px 60px;
-  background: #0a0a0a;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.info-box small {
-  color: #777;
-  font-size: 11px;
-}
-
-.info-box h3 {
-  margin: 6px 0 0;
-  font-size: 18px;
+  display: inline-block;
 }
 
 /* ===== PREVIEW ===== */
 .preview {
   position: relative;
-  padding: 30px 0px;
+  padding: 30px 0;
 }
 
 .slider-wrapper {
-  position: relative;
   overflow: hidden;
   margin: 0 60px;
 }
@@ -200,87 +111,46 @@ body {
 
 .slider img {
   width: calc((100% - 40px) / 3);
-  aspect-ratio: 16 / 9;
-  height: auto;
   border-radius: 20px;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5),
-              0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* ===== NÚT ===== */
+/* ===== NAV ===== */
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 5;
-
   width: 60px;
   height: 60px;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  background: transparent;
-  border: none;
+  align-items: center;
   cursor: pointer;
+  border: none;
+  background: transparent;
 }
 
-/* vị trí trái phải */
-.nav.left {
-  left: 0px;
-}
+.nav.left { left: 0; }
+.nav.right { right: 0; }
 
-.nav.right {
-  right: 0px;
-}
-
-/* ===== KHUNG RIÊNG ===== */
 .nav::before {
   content: "";
   position: absolute;
-
   width: 40px;
   height: 60px;
-
   background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
   border-radius: 18px;
-
   opacity: 0;
-  transition: all 0.25s ease;
-
-  /* 👇 chỉnh khung tại đây (KHÔNG ảnh hưởng mũi tên) */
- transform: translate(-1px, 2px);
-}
-
-/* hover mới hiện */
-.nav:hover::before {
-  opacity: 1;
-}
-
-/* ===== MŨI TÊN ===== */
-.nav span {
-  position: relative;
-  z-index: 1;
-
-  font-size: 40px;
-  color: rgba(255,255,255,0.6);
   transition: 0.25s;
 }
 
-.nav:hover span {
-  color: #fff;
+.nav:hover::before { opacity: 1; }
+
+.nav span {
+  font-size: 40px;
+  color: rgba(255,255,255,0.6);
 }
 
-/* ===== DESC ===== */
-.desc {
-  padding: 0 60px 40px;
-  color: #ccc;
-  line-height: 1.6;
-}
+.nav:hover span { color: white; }
 </style>
 </head>
 
@@ -291,9 +161,6 @@ body {
   <p>Today</p>
   <p>Games</p>
   <p>Apps</p>
-  <p>Arcade</p>
-  <hr>
-  <p>Categories</p>
 </div>
 
 <div class="main">
@@ -309,19 +176,9 @@ body {
     <div class="info">
       <h1 id="appName">Windows Defender</h1>
       <div class="sub">Utility</div>
-      <div class="sub">Free · In-App Purchases</div>
       <div class="get-btn">GET</div>
     </div>
   </div>
-</div>
-
-<div class="info-bar">
-  <div class="info-box"><small>RATINGS</small><h3>4.6 ★</h3></div>
-  <div class="info-box"><small>AGE</small><h3>13+</h3></div>
-  <div class="info-box"><small>CATEGORY</small><h3>Utility</h3></div>
-  <div class="info-box"><small>DEVELOPER</small><h3>Microsoft</h3></div>
-  <div class="info-box"><small>LANGUAGE</small><h3>EN</h3></div>
-  <div class="info-box"><small>SIZE</small><h3>1.9 GB</h3></div>
 </div>
 
 <div class="preview">
@@ -346,36 +203,36 @@ body {
 
 </div>
 
-<div class="desc">
-  Đây là phần mô tả ứng dụng giống App Store 😳
-</div>
-
 </div>
 
 <script>
-function setApp(icon, name) {
-  document.getElementById("appIcon").src = icon;
-  document.getElementById("appName").innerText = name;
-  const bg = document.getElementById("heroBg");
-  bg.style.backgroundImage = `url(${icon})`;
-}
-
-setApp("https://i.ibb.co/G38YxKhh/windows-defender-off.png", "Windows Defender");
-
 let index = 0;
 
-function slide(direction) {
+function updateNav() {
+  const left = document.querySelector(".nav.left");
+  const right = document.querySelector(".nav.right");
+  const total = document.getElementById("slider").children.length;
+
+  left.style.display = index === 0 ? "none" : "flex";
+  right.style.display = index >= total - 3 ? "none" : "flex";
+}
+
+function slide(dir) {
   const slider = document.getElementById("slider");
   const total = slider.children.length;
 
-  index += direction;
+  index += dir;
 
   if (index < 0) index = 0;
   if (index > total - 3) index = total - 3;
 
-  const width = slider.children[0].offsetWidth + 20;
-  slider.style.transform = `translateX(-${index * width}px)`;
+  const w = slider.children[0].offsetWidth + 20;
+  slider.style.transform = `translateX(-${index * w}px)`;
+
+  updateNav();
 }
+
+updateNav();
 </script>
 
 </body>
