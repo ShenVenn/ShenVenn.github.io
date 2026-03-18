@@ -215,22 +215,38 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent; /* 👈 bình thường không có nền */
   border: none;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  font-size: 45px;
   cursor: pointer;
+
+  transition: all 0.25s ease;
 }
 
-.nav.left {
-  left: 5px;
+/* mũi tên */
+.nav span {
+  font-size: 40px;
+  color: rgba(255,255,255,0.6);
+  transition: all 0.25s ease;
 }
 
-.nav.right {
-  right: 5px;
+/* hover hiện khung */
+.nav:hover {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 16px; /* 👈 bo vuông giống Apple */
+}
+
+/* hover thì mũi tên sáng hơn */
+.nav:hover span {
+  color: #fff;
 }
 
 /* ===== DESC ===== */
@@ -287,7 +303,9 @@ body {
 <!-- PREVIEW -->
 <div class="preview">
 
-  <button class="nav left" onclick="slide(-1)">‹</button>
+  <button class="nav left" onclick="slide(-1)">
+  <span>‹</span>
+</button>
 
   <div class="slider-wrapper">
     <div class="slider" id="slider">
@@ -299,7 +317,9 @@ body {
     </div>
   </div>
 
-  <button class="nav right" onclick="slide(1)">›</button>
+  <button class="nav right" onclick="slide(1)">
+  <span>›</span>
+</button>
 
 </div>
 
