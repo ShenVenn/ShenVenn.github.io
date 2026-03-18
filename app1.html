@@ -154,20 +154,27 @@ body {
 /* ===== INFO BAR ===== */
 .info-bar {
   display: flex;
-  gap: 60px;
-  padding: 25px 60px;
+  justify-content: center;   /* 👉 căn giữa toàn bộ */
+  align-items: center;
+  gap: 80px;                 /* 👉 giãn đều đẹp hơn */
+  padding: 30px 20px;
   background: #0a0a0a;
   border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center;        /* 👉 chữ nằm giữa từng box */
 }
 
+/* chữ nhỏ */
 .info-box small {
-  color: #777;
-  font-size: 11px;
+  color: #888;
+  font-size: 13px;           /* 👉 to hơn */
+  letter-spacing: 1px;
 }
 
+/* chữ chính */
 .info-box h3 {
-  margin: 6px 0 0;
-  font-size: 18px;
+  margin: 8px 0 0;
+  font-size: 22px;           /* 👉 to rõ hơn */
+  font-weight: 600;
 }
 
 /* ===== PREVIEW ===== */
