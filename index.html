@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +6,7 @@
 <title>App Store Clone</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -17,7 +16,7 @@ body {
   display: flex;
 }
 
-/* ===== SIDEBAR ===== */
+/* SIDEBAR */
 .sidebar {
   width: 240px;
   background: #0d0d0d;
@@ -49,20 +48,19 @@ body {
   color: white;
 }
 
-/* ===== MAIN ===== */
+/* MAIN */
 .main {
   flex: 1;
   padding: 40px 50px;
 }
 
-/* ===== HEADER ===== */
 .header-title {
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 30px;
 }
 
-/* ===== TODAY ===== */
+/* TODAY */
 .today {
   display: flex;
   gap: 28px;
@@ -91,7 +89,6 @@ body {
   object-fit: cover;
 }
 
-/* overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -118,7 +115,7 @@ body {
   opacity: 0.8;
 }
 
-/* ===== NEW BLUR BAR ===== */
+/* bottom */
 .bottom-bar {
   position: absolute;
   bottom: 0;
@@ -128,17 +125,10 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.9),
-    rgba(0,0,0,0.4),
-    transparent
-  );
-
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent);
   backdrop-filter: blur(10px);
 }
 
-/* app info */
 .app-info {
   display: flex;
   gap: 12px;
@@ -151,40 +141,25 @@ body {
   border-radius: 14px;
 }
 
-.app-name {
-  font-size: 14px;
-  font-weight: 600;
-}
+.app-name { font-size: 14px; font-weight: 600; }
+.app-type { font-size: 12px; opacity: 0.6; }
 
-.app-type {
-  font-size: 12px;
-  opacity: 0.6;
-}
-
-/* button */
 .view-btn {
   background: rgba(255,255,255,0.2);
   border: none;
   padding: 8px 18px;
   border-radius: 20px;
   color: white;
-  backdrop-filter: blur(10px);
   cursor: pointer;
 }
 
-.view-btn:hover {
-  background: rgba(255,255,255,0.35);
-}
-
-/* ===== APPS ===== */
+/* APPS */
 .apps-row {
   display: flex;
   gap: 28px;
 }
 
-/* CARD */
 .app-card {
-  flex: 1;
   border-radius: 30px;
   padding: 26px;
   height: 560px;
@@ -194,15 +169,16 @@ body {
   flex-direction: column;
 }
 
+.left-card { flex: 0.6; }
+.right-card { flex: 2; }
+
 .app-card span {
   font-size: 12px;
   opacity: 0.5;
-  letter-spacing: 1px;
 }
 
 .app-card h2 {
   margin: 8px 0;
-  font-size: 28px;
 }
 
 .app-desc {
@@ -211,19 +187,8 @@ body {
   margin-bottom: 18px;
 }
 
-/* LIST */
 .app-list {
   overflow-y: auto;
-  padding-right: 6px;
-}
-
-/* SCROLL */
-.app-list::-webkit-scrollbar {
-  width: 6px;
-}
-.app-list::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 10px;
 }
 
 /* ITEM */
@@ -235,11 +200,6 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.app-item:last-child {
-  border-bottom: none;
-}
-
-/* LEFT */
 .app-left {
   display: flex;
   gap: 14px;
@@ -252,43 +212,15 @@ body {
   border-radius: 16px;
 }
 
-/* TEXT */
-.app-text {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.app-text small {
-  display: block;
-  opacity: 0.6;
-  font-size: 13px;
-  margin-top: 3px;
-}
-
-/* BUTTON */
 .view-small {
   background: #0a84ff;
   border: none;
   padding: 7px 20px;
   border-radius: 20px;
   color: white;
-  font-size: 13px;
   cursor: pointer;
 }
 
-.view-small:hover {
-  opacity: 0.85;
-}
-
-/* SIZE */
-.left-card { flex: 0.6; }
-.right-card { flex: 2; }
-
-@media (max-width: 900px) {
-  .apps-row {
-    flex-direction: column;
-  }
-}
 </style>
 </head>
 
@@ -321,16 +253,15 @@ body {
         <p>Behind the scenes with developers.</p>
       </div>
 
-      <!-- NEW -->
       <div class="bottom-bar">
         <div class="app-info">
           <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
           <div>
-            <div class="app-name">Arknights: Endfield VN</div>
+            <div class="app-name">Arknights</div>
             <div class="app-type">Role-Playing</div>
           </div>
         </div>
-        <button class="view-btn">View</button>
+        <button class="view-btn" onclick="openApp('arknights.html')">View</button>
       </div>
     </div>
 
@@ -340,20 +271,19 @@ body {
 
       <div class="overlay">
         <span>QUICK TIP</span>
-        <h2>Top Heroes: Kingdom Saga</h2>
+        <h2>Top Heroes</h2>
         <p>Build your kingdom.</p>
       </div>
 
-      <!-- NEW -->
       <div class="bottom-bar">
         <div class="app-info">
           <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
           <div>
-            <div class="app-name">Thời Đại Anh Hùng</div>
+            <div class="app-name">Heroes Saga</div>
             <div class="app-type">Strategy</div>
           </div>
         </div>
-        <button class="view-btn">View</button>
+        <button class="view-btn" onclick="openApp('heroes.html')">View</button>
       </div>
     </div>
 
@@ -367,35 +297,74 @@ body {
       <h2>Top apps this week</h2>
       <div class="app-desc">Discover the best apps of the week.</div>
 
-      <div class="app-list">
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-            <div class="app-text">TikTok<small>Short videos</small></div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-      </div>
+      <div class="app-list" id="leftList"></div>
     </div>
 
     <div class="app-card right-card">
       <span>ESSENTIALS</span>
       <h2>Vietnam's favourites</h2>
 
-      <div class="app-list">
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png">
-            <div class="app-text">Zalo<small>Chat app</small></div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-      </div>
+      <div class="app-list" id="rightList"></div>
     </div>
 
   </div>
 
 </div>
 
+<script>
+// DATA
+const leftApps = [
+  {
+    name: "TikTok",
+    type: "Short videos",
+    icon: "https://cdn-icons-png.flaticon.com/512/3046/3046121.png",
+    link: "tiktok.html"
+  }
+];
+
+const rightApps = [
+  {
+    name: "Zalo",
+    type: "Chat app",
+    icon: "https://cdn-icons-png.flaticon.com/512/5968/5968841.png",
+    link: "zalo.html"
+  }
+];
+
+// RENDER
+function renderApps(id, apps) {
+  const box = document.getElementById(id);
+  box.innerHTML = "";
+
+  apps.forEach(app => {
+    const div = document.createElement("div");
+    div.className = "app-item";
+
+    div.innerHTML = `
+      <div class="app-left">
+        <img src="${app.icon}">
+        <div>
+          ${app.name}
+          <small style="display:block;opacity:0.6">${app.type}</small>
+        </div>
+      </div>
+      <button class="view-small" onclick="openApp('${app.link}')">View</button>
+    `;
+
+    box.appendChild(div);
+  });
+}
+
+// CLICK
+function openApp(link) {
+  window.location.href = link;
+}
+
+// INIT
+renderApps("leftList", leftApps);
+renderApps("rightList", rightApps);
+</script>
+
 </body>
 </html>
+```
