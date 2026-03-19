@@ -104,7 +104,14 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.6s ease;
+}
+
+.preview {
+  z-index: 2;
+}
+
+video {
+  z-index: 1;
 }
 
 /* overlay */
@@ -349,7 +356,7 @@ body {
 const video = document.getElementById("mainVideo");
 const preview = document.querySelector(".preview");
 
-video.addEventListener("loadeddata", () => {
+video.addEventListener("canplay", () => {
   preview.style.opacity = "0";
   video.style.opacity = "1";
 });
