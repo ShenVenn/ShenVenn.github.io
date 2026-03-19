@@ -1,118 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>App Store Mini</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Store Mini</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #121212;
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000;
+  color: white;
+  display: flex;
+}
 
-    .header {
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      background: #1f1f1f;
-    }
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  background: #111;
+  padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+}
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 
-    .card {
-      width: 160px;
-      margin: 12px;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.menu a {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
 
-    .card:hover {
-      transform: scale(1.08);
-    }
+.menu a:hover {
+  background: #222;
+  color: white;
+}
 
-    .card img {
-      width: 100%;
-      border-radius: 20px;
-    }
+/* ===== MAIN ===== */
+.main {
+  flex: 1;
+  padding: 20px;
+}
 
-    a {
-      text-decoration: none;
-      color: white;
-    }
+/* ===== BANNER ===== */
+.banner {
+  background: linear-gradient(135deg, #f5c542, #a86b00);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
 
-    .title {
-      margin-top: 8px;
-      font-size: 14px;
-    }
-  </style>
+.banner h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.banner p {
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 160px;
+  margin: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.08);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+</style>
 </head>
 
 <body>
 
-<div class="header">📱 App Store</div>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>📱 App Store</h2>
 
-<div class="grid">
+  <div class="menu">
+    <a href="#">Today</a>
+    <a href="#">Games</a>
+    <a href="#">Apps</a>
+    <a href="#">Categories</a>
+  </div>
+</div>
 
-  <a href="Defender.html">
-    <div class="card">
-      <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-      <div class="title">Windows Defender</div>
-    </div>
-  </a>
+<!-- MAIN CONTENT -->
+<div class="main">
 
-  <a href="Activation Win10.html">
-    <div class="card">
-      <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-      <div class="title">Activation Win10</div>
-    </div>
-  </a>
+  <!-- BANNER -->
+  <div class="banner">
+    <h1>Top Apps Today</h1>
+    <p>Khám phá ứng dụng hot nhất hôm nay</p>
+  </div>
 
-  <a href="Everything.html">
-    <div class="card">
-      <img src="https://i.ibb.co/jkZXPC7T/images.png">
-      <div class="title">Everything</div>
-    </div>
-  </a>
-  
-  <a href="Activation Win10.html">
-    <div class="card">
-      <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-      <div class="title">app2</div>
-    </div>
-  </a>
-  
-  <a href="Activation Win10.html">
-    <div class="card">
-      <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-      <div class="title">app3</div>
-    </div>
-  </a>
-  <a href="Activation Win10.html">
-    <div class="card">
-      <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-      <div class="title">app4</div>
-    </div>
-  </a>
-  <a href="Activation Win10.html">
-    <div class="card">
-      <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-      <div class="title">app5</div>
-    </div>
-  </a>
-  <a href="Activation Win10.html">
-    <div class="card">
-      <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-      <div class="title">app6</div>
-    </div>
-  </a>
+  <!-- GRID -->
+  <div class="grid">
+
+    <a href="Defender.html">
+      <div class="card">
+        <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+        <div class="title">Windows Defender</div>
+      </div>
+    </a>
+
+    <a href="Activation Win10.html">
+      <div class="card">
+        <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
+        <div class="title">Activation Win10</div>
+      </div>
+    </a>
+
+    <a href="Everything.html">
+      <div class="card">
+        <img src="https://i.ibb.co/jkZXPC7T/images.png">
+        <div class="title">Everything</div>
+      </div>
+    </a>
+
+    <a href="#">
+      <div class="card">
+        <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
+        <div class="title">App 2</div>
+      </div>
+    </a>
+
+    <a href="#">
+      <div class="card">
+        <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
+        <div class="title">App 3</div>
+      </div>
+    </a>
+
+  </div>
 
 </div>
 
