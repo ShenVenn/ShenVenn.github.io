@@ -5,6 +5,10 @@
 <title>App Store Clone</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -23,18 +27,18 @@ body {
 
 .search {
   width: 100%;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 9px;
+  border-radius: 10px;
   border: none;
   background: #1a1a1a;
   color: white;
-  margin: 15px 0;
+  margin: 16px 0;
 }
 
 .menu a {
   display: block;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   color: #aaa;
   text-decoration: none;
   margin-bottom: 6px;
@@ -48,178 +52,125 @@ body {
 /* ===== MAIN ===== */
 .main {
   flex: 1;
-  padding: 30px 40px;
+  padding: 40px 50px;
 }
 
-/* ===== TODAY ===== */
-.today {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
+/* ===== HEADER ===== */
+.header-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
-.big-card {
-  flex: 2.2;
-  height: 420px;
-  border-radius: 28px;
-  overflow: hidden;
-  position: relative;
-}
-
-.small-card {
-  flex: 1;
-  height: 420px;
-  border-radius: 28px;
-  overflow: hidden;
-  position: relative;
-}
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* overlay */
-.overlay {
-  position: absolute;
-  top: 0;
-  padding: 24px;
-}
-
-.overlay span {
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-.overlay h1 {
-  font-size: 30px;
-  margin: 6px 0;
-}
-
-.overlay h2 {
-  font-size: 22px;
-}
-
-.overlay p {
-  font-size: 13px;
-  opacity: 0.85;
-}
-
-/* bottom */
-.bottom-bar {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-}
-
-.app-info {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.app-info img {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-}
-
-.view-btn {
-  background: rgba(255,255,255,0.25);
-  border: none;
-  padding: 7px 18px;
-  border-radius: 20px;
-  color: white;
-  backdrop-filter: blur(10px);
-}
-
-/* ===== APPS ===== */
+/* ===== ROW ===== */
 .apps-row {
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 
+/* ===== CARD ===== */
 .app-card {
   flex: 1;
-  border-radius: 26px;
-  padding: 22px;
-  height: 460px;
+  border-radius: 28px;
+  padding: 26px;
+  height: 540px;
   background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
 }
 
 .app-card span {
-  font-size: 11px;
+  font-size: 12px;
   opacity: 0.5;
+  letter-spacing: 1px;
 }
 
 .app-card h2 {
-  margin: 6px 0;
-  font-size: 26px;
+  margin: 8px 0;
+  font-size: 28px;
 }
 
 .app-desc {
-  font-size: 13px;
-  opacity: 0.5;
-  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 18px;
 }
 
+/* ===== LIST ===== */
 .app-list {
   overflow-y: auto;
+  padding-right: 6px;
 }
 
-/* scrollbar */
+/* scrollbar đẹp */
 .app-list::-webkit-scrollbar {
   width: 6px;
 }
 .app-list::-webkit-scrollbar-thumb {
-  background: #444;
+  background: #555;
   border-radius: 10px;
 }
 
+/* ===== ITEM ===== */
 .app-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  padding: 12px 0;
+  transition: 0.2s;
 }
 
+.app-item:hover {
+  transform: scale(1.02);
+}
+
+/* LEFT */
 .app-left {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
 
 .app-left img {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
 }
 
+/* TEXT */
 .app-text {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .app-text small {
   display: block;
   opacity: 0.6;
-  font-size: 12px;
+  font-size: 13px;
+  margin-top: 3px;
 }
 
+/* BUTTON */
 .view-small {
   background: #0a84ff;
   border: none;
-  padding: 6px 18px;
+  padding: 7px 20px;
   border-radius: 20px;
   color: white;
   font-size: 13px;
+  cursor: pointer;
+}
+
+.view-small:hover {
+  opacity: 0.85;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .apps-row {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
@@ -240,73 +191,25 @@ body {
 <!-- MAIN -->
 <div class="main">
 
-  <!-- TODAY -->
-  <div class="today">
-
-    <!-- BIG -->
-    <div class="big-card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf">
-
-      <div class="overlay">
-        <span>APP STORE EXCLUSIVE</span>
-        <h1>Under the hood of Arknights</h1>
-        <p>Behind the scenes with developers.</p>
-      </div>
-
-      <div class="bottom-bar">
-        <div class="app-info">
-          <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1">
-          <div>
-            <div>Arknights</div>
-            <small>Role Playing</small>
-          </div>
-        </div>
-        <button class="view-btn">View</button>
-      </div>
-    </div>
-
-    <!-- SMALL -->
-    <div class="small-card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3">
-
-      <div class="overlay">
-        <span>QUICK TIP</span>
-        <h2>Top Heroes: Kingdom Saga</h2>
-        <p>Build your kingdom.</p>
-      </div>
-
-      <div class="bottom-bar">
-        <div class="app-info">
-          <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1">
-          <div>
-            <div>Kingdom Saga</div>
-            <small>Strategy</small>
-          </div>
-        </div>
-        <button class="view-btn">View</button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- APPS -->
-  <h2>The Biggest Apps and Games</h2>
+  <div class="header-title">The Biggest Apps and Games</div>
 
   <div class="apps-row">
 
+    <!-- LEFT CARD -->
     <div class="app-card">
       <span>OUR FAVOURITES</span>
       <h2>Top apps this week</h2>
-      <div class="app-desc">Discover the best apps</div>
+      <div class="app-desc">Discover the best apps of the week from the App Store.</div>
 
       <div class="app-list">
 
+        <!-- ITEMS -->
         <div class="app-item">
           <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
             <div class="app-text">
-              TikTok
-              <small>Short videos</small>
+              TikTok-Global Video Community
+              <small>Short-Form Video Platform</small>
             </div>
           </div>
           <button class="view-small">View</button>
@@ -317,27 +220,18 @@ body {
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
             <div class="app-text">
               YouTube
-              <small>Video & Music</small>
+              <small>Videos, Music and Live Streams</small>
             </div>
           </div>
           <button class="view-small">View</button>
         </div>
-
-      </div>
-    </div>
-
-    <div class="app-card">
-      <span>ESSENTIALS</span>
-      <h2>Vietnam's favourites</h2>
-
-      <div class="app-list">
 
         <div class="app-item">
           <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png">
             <div class="app-text">
               Zalo
-              <small>Chat app</small>
+              <small>Fast. Stable. Private.</small>
             </div>
           </div>
           <button class="view-small">View</button>
@@ -347,8 +241,73 @@ body {
           <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png">
             <div class="app-text">
-              CapCut
-              <small>Editor</small>
+              CapCut: Photo & Video Editor
+              <small>Video maker with music</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+            <div class="app-text">
+              ChatGPT
+              <small>The official app by OpenAI</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="app-card">
+      <span>ESSENTIALS</span>
+      <h2>Vietnam's favourites</h2>
+
+      <div class="app-list">
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+            <div class="app-text">
+              TikTok-Global Video Community
+              <small>Short-Form Video Platform</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+            <div class="app-text">
+              YouTube
+              <small>Videos, Music and Live Streams</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png">
+            <div class="app-text">
+              Zalo
+              <small>Fast. Stable. Private.</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png">
+            <div class="app-text">
+              CapCut: Photo & Video Editor
+              <small>Video maker with music</small>
             </div>
           </div>
           <button class="view-small">View</button>
@@ -363,4 +322,3 @@ body {
 
 </body>
 </html>
-```
