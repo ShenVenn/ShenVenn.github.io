@@ -20,11 +20,6 @@ body {
   background: #0d0d0d;
   padding: 20px;
   height: 100vh;
-  box-sizing: border-box;
-}
-
-.sidebar h2 {
-  font-size: 18px;
 }
 
 .search {
@@ -57,13 +52,6 @@ body {
   padding: 20px;
 }
 
-/* ===== TITLE ===== */
-.today-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
 /* ===== TODAY ===== */
 .today {
   display: flex;
@@ -77,15 +65,8 @@ body {
   overflow: hidden;
 }
 
-.big-card {
-  flex: 3;
-  height: 460px;
-}
-
-.small-card {
-  flex: 1.2;
-  height: 460px;
-}
+.big-card { flex: 3; height: 420px; }
+.small-card { flex: 1.2; height: 420px; }
 
 .card-img {
   width: 100%;
@@ -93,46 +74,25 @@ body {
   object-fit: cover;
 }
 
-.overlay.top {
+.overlay {
   position: absolute;
   top: 0;
   padding: 20px;
-}
-
-.tag {
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-.overlay h1 {
-  margin: 5px 0;
-  font-size: 28px;
-}
-
-.overlay h2 {
-  margin: 5px 0;
-  font-size: 22px;
-}
-
-.overlay p {
-  font-size: 13px;
-  opacity: 0.85;
 }
 
 .bottom-bar {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 14px 18px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
 .app-info {
   display: flex;
-  align-items: center;
   gap: 10px;
 }
 
@@ -142,133 +102,124 @@ body {
   border-radius: 12px;
 }
 
-.name {
-  font-size: 14px;
-}
-
-.sub {
-  font-size: 11px;
-  opacity: 0.7;
-}
-
 .view-btn {
   background: rgba(255,255,255,0.2);
   border: none;
   padding: 6px 16px;
   border-radius: 20px;
   color: white;
-  cursor: pointer;
 }
 
-/* ===== APPS SECTION ===== */
+/* ===== APPS ===== */
 .apps-row {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .app-card {
   flex: 1;
-  background: #1c1c1e;
-  border-radius: 22px;
-  padding: 18px;
-  height: 360px;
+  border-radius: 26px;
+  padding: 22px;
+  height: 420px;
+  background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
   display: flex;
   flex-direction: column;
 }
 
 .app-card span {
   font-size: 11px;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .app-card h2 {
-  margin: 5px 0 10px;
+  margin: 6px 0;
+  font-size: 26px;
+}
+
+.app-desc {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-bottom: 10px;
 }
 
 .app-list {
   overflow-y: auto;
 }
 
+/* scrollbar */
+.app-list::-webkit-scrollbar { width: 6px; }
+.app-list::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
 .app-item {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  align-items: center;
+  margin-bottom: 18px;
 }
 
 .app-left {
   display: flex;
+  gap: 12px;
   align-items: center;
-  gap: 10px;
 }
 
 .app-left img {
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   border-radius: 14px;
 }
 
 .app-text {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .app-text small {
   display: block;
   opacity: 0.6;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .view-small {
   background: #0a84ff;
   border: none;
-  padding: 6px 14px;
-  border-radius: 16px;
+  padding: 6px 18px;
+  border-radius: 20px;
   color: white;
-  font-size: 12px;
-  cursor: pointer;
+  font-size: 13px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>📱 App Store</h2>
   <input class="search" placeholder="Search">
-
   <div class="menu">
     <a href="#">Today</a>
     <a href="#">Games</a>
     <a href="#">Apps</a>
-    <a href="#">Arcade</a>
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main">
-
-  <h1 class="today-title">Today</h1>
 
   <!-- TODAY -->
   <div class="today">
 
     <div class="big-card">
       <img class="card-img" src="https://i.ibb.co/4w1JqgW/game-bg.jpg">
-
-      <div class="overlay top">
-        <span class="tag">QUICK TIP</span>
-        <h1>Top Heroes: Kingdom Saga</h1>
-        <p>Establish a mighty realm.</p>
+      <div class="overlay">
+        <span>QUICK TIP</span>
+        <h1>Top Heroes</h1>
       </div>
-
       <div class="bottom-bar">
         <div class="app-info">
           <img src="https://i.ibb.co/4w1JqgW/game-bg.jpg">
-          <div>
-            <div class="name">Thời Đại Anh Hùng</div>
-            <div class="sub">Strategy</div>
-          </div>
+          <div>Game</div>
         </div>
         <button class="view-btn">View</button>
       </div>
@@ -276,20 +227,14 @@ body {
 
     <div class="small-card">
       <img class="card-img" src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
-
-      <div class="overlay top">
-        <span class="tag">GAMES WE LOVE</span>
-        <h2>Chess - Play & Learn</h2>
-        <p>Play with global players.</p>
+      <div class="overlay">
+        <span>GAMES</span>
+        <h2>Chess</h2>
       </div>
-
       <div class="bottom-bar">
         <div class="app-info">
           <img src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
-          <div>
-            <div class="name">Chess</div>
-            <div class="sub">Puzzle</div>
-          </div>
+          <div>Chess</div>
         </div>
         <button class="view-btn">View</button>
       </div>
@@ -298,74 +243,73 @@ body {
   </div>
 
   <!-- APPS -->
-  <div class="section">
-    <h2>The Biggest Apps and Games</h2>
+  <h2>The Biggest Apps and Games</h2>
 
-    <div class="apps-row">
+  <div class="apps-row">
 
-      <div class="app-card">
-        <span>OUR FAVOURITES</span>
-        <h2>Top apps this week</h2>
+    <div class="app-card">
+      <span>OUR FAVOURITES</span>
+      <h2>Top apps this week</h2>
+      <div class="app-desc">Discover the best apps</div>
 
-        <div class="app-list">
+      <div class="app-list">
 
-          <div class="app-item">
-            <div class="app-left">
-              <img src="https://i.ibb.co/jkZXPC7T/images.png">
-              <div class="app-text">
-                TikTok
-                <small>Short videos</small>
-              </div>
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://i.ibb.co/jkZXPC7T/images.png">
+            <div class="app-text">
+              TikTok
+              <small>Short videos</small>
             </div>
-            <button class="view-small">View</button>
           </div>
-
-          <div class="app-item">
-            <div class="app-left">
-              <img src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
-              <div class="app-text">
-                YouTube
-                <small>Video & Music</small>
-              </div>
-            </div>
-            <button class="view-small">View</button>
-          </div>
-
+          <button class="view-small">View</button>
         </div>
-      </div>
 
-      <div class="app-card">
-        <span>ESSENTIALS</span>
-        <h2>Vietnam's favourites</h2>
-
-        <div class="app-list">
-
-          <div class="app-item">
-            <div class="app-left">
-              <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-              <div class="app-text">
-                Zalo
-                <small>Chat & Call</small>
-              </div>
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
+            <div class="app-text">
+              YouTube
+              <small>Video & Music</small>
             </div>
-            <button class="view-small">View</button>
           </div>
-
-          <div class="app-item">
-            <div class="app-left">
-              <img src="https://i.ibb.co/jkZXPC7T/images.png">
-              <div class="app-text">
-                CapCut
-                <small>Video Editor</small>
-              </div>
-            </div>
-            <button class="view-small">View</button>
-          </div>
-
+          <button class="view-small">View</button>
         </div>
-      </div>
 
+      </div>
     </div>
+
+    <div class="app-card">
+      <span>ESSENTIALS</span>
+      <h2>Vietnam's favourites</h2>
+
+      <div class="app-list">
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+            <div class="app-text">
+              Zalo
+              <small>Chat app</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+        <div class="app-item">
+          <div class="app-left">
+            <img src="https://i.ibb.co/jkZXPC7T/images.png">
+            <div class="app-text">
+              CapCut
+              <small>Editor</small>
+            </div>
+          </div>
+          <button class="view-small">View</button>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
 </div>
