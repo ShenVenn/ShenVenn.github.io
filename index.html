@@ -255,6 +255,15 @@ body {
   opacity: 0.85;
 }
 
+/* ===== SIZE CUSTOM (CHỈ PHẦN MỚI THÊM) ===== */
+.left-card {
+  flex: 0.85;
+}
+
+.right-card {
+  flex: 1.6;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .apps-row {
@@ -306,7 +315,8 @@ body {
   <!-- APPS -->
   <div class="apps-row">
 
-    <div class="app-card">
+    <!-- LEFT -->
+    <div class="app-card left-card">
       <span>OUR FAVOURITES</span>
       <h2>Top apps this week</h2>
       <div class="app-desc">Discover the best apps of the week from the App Store.</div>
@@ -338,7 +348,8 @@ body {
       </div>
     </div>
 
-    <div class="app-card">
+    <!-- RIGHT -->
+    <div class="app-card right-card">
       <span>ESSENTIALS</span>
       <h2>Vietnam's favourites</h2>
 
