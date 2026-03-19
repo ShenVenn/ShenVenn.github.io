@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,6 @@ body {
 
 .sidebar h2 {
   font-size: 18px;
-  margin-bottom: 10px;
 }
 
 .search {
@@ -34,7 +34,7 @@ body {
   border: none;
   background: #1a1a1a;
   color: white;
-  margin-bottom: 20px;
+  margin: 15px 0;
 }
 
 .menu a {
@@ -57,13 +57,11 @@ body {
   padding: 20px;
 }
 
-/* ===== TITLE TODAY ===== */
+/* ===== TITLE ===== */
 .today-title {
-  font-size: 26px;   /* 👈 nhỏ lại (từ 34 → 26) */
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 10px; /* 👈 giảm khoảng cách dưới để nó “lên trên” */
-  margin-top: -5px;    /* 👈 kéo lên trên nhẹ */
-  letter-spacing: -0.3px;
+  margin-bottom: 10px;
 }
 
 /* ===== TODAY ===== */
@@ -77,7 +75,6 @@ body {
   position: relative;
   border-radius: 26px;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .big-card {
@@ -96,7 +93,6 @@ body {
   object-fit: cover;
 }
 
-/* TEXT TOP */
 .overlay.top {
   position: absolute;
   top: 0;
@@ -123,7 +119,6 @@ body {
   opacity: 0.85;
 }
 
-/* BOTTOM BAR */
 .bottom-bar {
   position: absolute;
   bottom: 0;
@@ -135,7 +130,6 @@ body {
   background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
 }
 
-/* APP INFO */
 .app-info {
   display: flex;
   align-items: center;
@@ -157,7 +151,6 @@ body {
   opacity: 0.7;
 }
 
-/* BUTTON */
 .view-btn {
   background: rgba(255,255,255,0.2);
   border: none;
@@ -165,47 +158,74 @@ body {
   border-radius: 20px;
   color: white;
   cursor: pointer;
-  backdrop-filter: blur(10px);
 }
 
-.view-btn:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-/* ===== SECTION ===== */
-.section h2 {
-  margin-bottom: 15px;
-}
-
-.grid {
+/* ===== APPS SECTION ===== */
+.apps-row {
   display: flex;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.card {
-  width: 150px;
-  margin: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+.app-card {
+  flex: 1;
+  background: #1c1c1e;
+  border-radius: 22px;
+  padding: 18px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
 }
 
-.card:hover {
-  transform: scale(1.08);
+.app-card span {
+  font-size: 11px;
+  opacity: 0.6;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 18px;
+.app-card h2 {
+  margin: 5px 0 10px;
 }
 
-.title {
-  margin-top: 6px;
+.app-list {
+  overflow-y: auto;
+}
+
+.app-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.app-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+}
+
+.app-text {
   font-size: 13px;
 }
 
-a {
-  text-decoration: none;
+.app-text small {
+  display: block;
+  opacity: 0.6;
+  font-size: 11px;
+}
+
+.view-small {
+  background: #0a84ff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 16px;
   color: white;
+  font-size: 12px;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -228,20 +248,18 @@ a {
 <!-- MAIN -->
 <div class="main">
 
-  <!-- TITLE -->
   <h1 class="today-title">Today</h1>
 
   <!-- TODAY -->
   <div class="today">
 
-    <!-- CARD TO -->
     <div class="big-card">
       <img class="card-img" src="https://i.ibb.co/4w1JqgW/game-bg.jpg">
 
       <div class="overlay top">
         <span class="tag">QUICK TIP</span>
-        <h1>Go for glory in Top Heroes: Kingdom Saga</h1>
-        <p>Establish a mighty realm with these useful pointers.</p>
+        <h1>Top Heroes: Kingdom Saga</h1>
+        <p>Establish a mighty realm.</p>
       </div>
 
       <div class="bottom-bar">
@@ -256,22 +274,21 @@ a {
       </div>
     </div>
 
-    <!-- CARD NHỎ -->
     <div class="small-card">
       <img class="card-img" src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
 
       <div class="overlay top">
         <span class="tag">GAMES WE LOVE</span>
         <h2>Chess - Play & Learn</h2>
-        <p>Hone your chess skills and take on global players.</p>
+        <p>Play with global players.</p>
       </div>
 
       <div class="bottom-bar">
         <div class="app-info">
           <img src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
           <div>
-            <div class="name">Chess - Play & Learn</div>
-            <div class="sub">Games, Puzzles, and Friends!</div>
+            <div class="name">Chess</div>
+            <div class="sub">Puzzle</div>
           </div>
         </div>
         <button class="view-btn">View</button>
@@ -280,32 +297,73 @@ a {
 
   </div>
 
-  <!-- SECTION -->
+  <!-- APPS -->
   <div class="section">
-    <h2>Top apps this week</h2>
+    <h2>The Biggest Apps and Games</h2>
 
-    <div class="grid">
+    <div class="apps-row">
 
-      <a href="Defender.html">
-        <div class="card">
-          <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
-          <div class="title">Windows Defender</div>
+      <div class="app-card">
+        <span>OUR FAVOURITES</span>
+        <h2>Top apps this week</h2>
+
+        <div class="app-list">
+
+          <div class="app-item">
+            <div class="app-left">
+              <img src="https://i.ibb.co/jkZXPC7T/images.png">
+              <div class="app-text">
+                TikTok
+                <small>Short videos</small>
+              </div>
+            </div>
+            <button class="view-small">View</button>
+          </div>
+
+          <div class="app-item">
+            <div class="app-left">
+              <img src="https://i.ibb.co/3YpZ8GQ/chess.jpg">
+              <div class="app-text">
+                YouTube
+                <small>Video & Music</small>
+              </div>
+            </div>
+            <button class="view-small">View</button>
+          </div>
+
         </div>
-      </a>
+      </div>
 
-      <a href="Activation Win10.html">
-        <div class="card">
-          <img src="https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png">
-          <div class="title">Activation Win10</div>
-        </div>
-      </a>
+      <div class="app-card">
+        <span>ESSENTIALS</span>
+        <h2>Vietnam's favourites</h2>
 
-      <a href="Everything.html">
-        <div class="card">
-          <img src="https://i.ibb.co/jkZXPC7T/images.png">
-          <div class="title">Everything</div>
+        <div class="app-list">
+
+          <div class="app-item">
+            <div class="app-left">
+              <img src="https://i.ibb.co/G38YxKhh/windows-defender-off.png">
+              <div class="app-text">
+                Zalo
+                <small>Chat & Call</small>
+              </div>
+            </div>
+            <button class="view-small">View</button>
+          </div>
+
+          <div class="app-item">
+            <div class="app-left">
+              <img src="https://i.ibb.co/jkZXPC7T/images.png">
+              <div class="app-text">
+                CapCut
+                <small>Video Editor</small>
+              </div>
+            </div>
+            <button class="view-small">View</button>
+          </div>
+
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -314,3 +372,4 @@ a {
 
 </body>
 </html>
+```
