@@ -118,18 +118,27 @@ body {
   opacity: 0.8;
 }
 
-/* bottom */
+/* ===== NEW BLUR BAR ===== */
 .bottom-bar {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 18px;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+
+  backdrop-filter: blur(14px);
 }
 
+/* app info */
 .app-info {
   display: flex;
   gap: 12px;
@@ -137,18 +146,34 @@ body {
 }
 
 .app-info img {
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   border-radius: 14px;
 }
 
+.app-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.app-type {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* button */
 .view-btn {
-  background: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.2);
   border: none;
-  padding: 7px 18px;
+  padding: 8px 18px;
   border-radius: 20px;
   color: white;
   backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: rgba(255,255,255,0.35);
 }
 
 /* ===== APPS ===== */
@@ -255,16 +280,10 @@ body {
   opacity: 0.85;
 }
 
-/* ===== SIZE CUSTOM (CHỈ PHẦN MỚI THÊM) ===== */
-.left-card {
-  flex: 0.6;
-}
+/* SIZE */
+.left-card { flex: 0.6; }
+.right-card { flex: 2; }
 
-.right-card {
-  flex: 2;
-}
-
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .apps-row {
     flex-direction: column;
@@ -292,21 +311,49 @@ body {
   <!-- TODAY -->
   <div class="today">
 
+    <!-- BIG -->
     <div class="big-card">
       <img class="card-img" src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf">
+
       <div class="overlay">
         <span>APP STORE EXCLUSIVE</span>
         <h1>Under the hood of Arknights</h1>
         <p>Behind the scenes with developers.</p>
       </div>
+
+      <!-- NEW -->
+      <div class="bottom-bar">
+        <div class="app-info">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+          <div>
+            <div class="app-name">Arknights: Endfield VN</div>
+            <div class="app-type">Role-Playing</div>
+          </div>
+        </div>
+        <button class="view-btn">View</button>
+      </div>
     </div>
 
+    <!-- SMALL -->
     <div class="small-card">
       <img class="card-img" src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3">
+
       <div class="overlay">
         <span>QUICK TIP</span>
         <h2>Top Heroes: Kingdom Saga</h2>
         <p>Build your kingdom.</p>
+      </div>
+
+      <!-- NEW -->
+      <div class="bottom-bar">
+        <div class="app-info">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+          <div>
+            <div class="app-name">Thời Đại Anh Hùng</div>
+            <div class="app-type">Strategy</div>
+          </div>
+        </div>
+        <button class="view-btn">View</button>
       </div>
     </div>
 
@@ -315,57 +362,34 @@ body {
   <!-- APPS -->
   <div class="apps-row">
 
-    <!-- LEFT -->
     <div class="app-card left-card">
       <span>OUR FAVOURITES</span>
       <h2>Top apps this week</h2>
-      <div class="app-desc">Discover the best apps of the week from the App Store.</div>
+      <div class="app-desc">Discover the best apps of the week.</div>
 
       <div class="app-list">
-
         <div class="app-item">
           <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-            <div class="app-text">
-              TikTok
-              <small>Short videos</small>
-            </div>
+            <div class="app-text">TikTok<small>Short videos</small></div>
           </div>
           <button class="view-small">View</button>
         </div>
-
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-            <div class="app-text">
-              YouTube
-              <small>Videos & Music</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
       </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="app-card right-card">
       <span>ESSENTIALS</span>
       <h2>Vietnam's favourites</h2>
 
       <div class="app-list">
-
         <div class="app-item">
           <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png">
-            <div class="app-text">
-              Zalo
-              <small>Chat app</small>
-            </div>
+            <div class="app-text">Zalo<small>Chat app</small></div>
           </div>
           <button class="view-small">View</button>
         </div>
-
       </div>
     </div>
 
