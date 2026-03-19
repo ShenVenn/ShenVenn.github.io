@@ -27,7 +27,7 @@ body {
 
 .search {
   width: 100%;
-  padding: 9px;
+  padding: 10px;
   border-radius: 10px;
   border: none;
   background: #1a1a1a;
@@ -57,23 +57,112 @@ body {
 
 /* ===== HEADER ===== */
 .header-title {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 600;
   margin-bottom: 30px;
 }
 
-/* ===== ROW ===== */
+/* ===== TODAY ===== */
+.today {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 45px;
+}
+
+.big-card {
+  flex: 2;
+  height: 340px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.small-card {
+  flex: 1;
+  height: 340px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  padding: 26px;
+}
+
+.overlay span {
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+.overlay h1 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+.overlay h2 {
+  font-size: 22px;
+}
+
+.overlay p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* bottom */
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+}
+
+.app-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.app-info img {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+}
+
+.view-btn {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  padding: 7px 18px;
+  border-radius: 20px;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== APPS ===== */
 .apps-row {
   display: flex;
   gap: 28px;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .app-card {
   flex: 1;
-  border-radius: 28px;
+  border-radius: 30px;
   padding: 26px;
-  height: 540px;
+  height: 560px;
   background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   display: flex;
@@ -97,13 +186,13 @@ body {
   margin-bottom: 18px;
 }
 
-/* ===== LIST ===== */
+/* LIST */
 .app-list {
   overflow-y: auto;
   padding-right: 6px;
 }
 
-/* scrollbar đẹp */
+/* SCROLL */
 .app-list::-webkit-scrollbar {
   width: 6px;
 }
@@ -112,17 +201,17 @@ body {
   border-radius: 10px;
 }
 
-/* ===== ITEM ===== */
+/* ITEM */
 .app-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  transition: 0.2s;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.app-item:hover {
-  transform: scale(1.02);
+.app-item:last-child {
+  border-bottom: none;
 }
 
 /* LEFT */
@@ -133,8 +222,8 @@ body {
 }
 
 .app-left img {
-  width: 62px;
-  height: 62px;
+  width: 64px;
+  height: 64px;
   border-radius: 16px;
 }
 
@@ -166,7 +255,7 @@ body {
   opacity: 0.85;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .apps-row {
     flex-direction: column;
@@ -177,7 +266,6 @@ body {
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>📱 App Store</h2>
   <input class="search" placeholder="Search">
@@ -188,14 +276,36 @@ body {
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
   <div class="header-title">The Biggest Apps and Games</div>
 
+  <!-- TODAY -->
+  <div class="today">
+
+    <div class="big-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf">
+      <div class="overlay">
+        <span>APP STORE EXCLUSIVE</span>
+        <h1>Under the hood of Arknights</h1>
+        <p>Behind the scenes with developers.</p>
+      </div>
+    </div>
+
+    <div class="small-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3">
+      <div class="overlay">
+        <span>QUICK TIP</span>
+        <h2>Top Heroes: Kingdom Saga</h2>
+        <p>Build your kingdom.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- APPS -->
   <div class="apps-row">
 
-    <!-- LEFT CARD -->
     <div class="app-card">
       <span>OUR FAVOURITES</span>
       <h2>Top apps this week</h2>
@@ -203,13 +313,12 @@ body {
 
       <div class="app-list">
 
-        <!-- ITEMS -->
         <div class="app-item">
           <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
             <div class="app-text">
-              TikTok-Global Video Community
-              <small>Short-Form Video Platform</small>
+              TikTok
+              <small>Short videos</small>
             </div>
           </div>
           <button class="view-small">View</button>
@@ -220,40 +329,7 @@ body {
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
             <div class="app-text">
               YouTube
-              <small>Videos, Music and Live Streams</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png">
-            <div class="app-text">
-              Zalo
-              <small>Fast. Stable. Private.</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png">
-            <div class="app-text">
-              CapCut: Photo & Video Editor
-              <small>Video maker with music</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
-            <div class="app-text">
-              ChatGPT
-              <small>The official app by OpenAI</small>
+              <small>Videos & Music</small>
             </div>
           </div>
           <button class="view-small">View</button>
@@ -262,7 +338,6 @@ body {
       </div>
     </div>
 
-    <!-- RIGHT CARD -->
     <div class="app-card">
       <span>ESSENTIALS</span>
       <h2>Vietnam's favourites</h2>
@@ -271,43 +346,10 @@ body {
 
         <div class="app-item">
           <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-            <div class="app-text">
-              TikTok-Global Video Community
-              <small>Short-Form Video Platform</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-            <div class="app-text">
-              YouTube
-              <small>Videos, Music and Live Streams</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
-        <div class="app-item">
-          <div class="app-left">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png">
             <div class="app-text">
               Zalo
-              <small>Fast. Stable. Private.</small>
-            </div>
-          </div>
-          <button class="view-small">View</button>
-        </div>
-
-        <div class="app-item">
-          <div class="app-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png">
-            <div class="app-text">
-              CapCut: Photo & Video Editor
-              <small>Video maker with music</small>
+              <small>Chat app</small>
             </div>
           </div>
           <button class="view-small">View</button>
