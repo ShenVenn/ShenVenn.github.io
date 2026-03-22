@@ -21,9 +21,50 @@ body {
   height: 100vh;
 }
 
-.sidebar h2 { font-size: 16px; }
-.sidebar p { color: #aaa; margin: 12px 0; }
+.sidebar h2 {
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
 
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(0,122,255,0.25);
+}
+  .sidebar h2:hover {
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.8),
+    0 0 16px rgba(0,122,255,0.7),
+    0 0 30px rgba(0,122,255,0.5);
+
+  transform: scale(1.06);
+}
+.sidebar p { color: #aaa; margin: 12px 0; }
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(0,122,255,0.25);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.logo:hover {
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.8),
+    0 0 16px rgba(0,122,255,0.7),
+    0 0 30px rgba(0,122,255,0.5);
+
+  transform: scale(1.06);
+}
 /* ===== MAIN ===== */
 .main {
   flex: 1;
