@@ -282,7 +282,7 @@ body {
 <body>
 
 <div class="sidebar">
-  <h2>App Store</h2>
+  <h2 onclick="goHome()" style="cursor:pointer;">App Store</h2>
   <p>Today</p>
   <p>Games</p>
   <p>Apps</p>
@@ -430,6 +430,9 @@ function slide(dir) {
 }
 
 updateNav();
+  function goHome() {
+  window.location.href = "index.html";
+}
 </script>
 
 </body>
