@@ -243,9 +243,8 @@ video {
   height: 64px;
   border-radius: 16px;
 }
-
-.right-card .view-small {
-  margin-right: 20px;
+/* ===== GLASS BUTTON STYLE (áp dụng cho tất cả nút View) ===== */
+.view-small {
   position: relative;
   padding: 7px 22px;
   border-radius: 999px;
@@ -273,9 +272,8 @@ video {
   transition: all 0.25s ease;
 }
 
-/* highlight giả ánh phản chiếu kính */
+/* highlight ánh kính phía trên */
 .view-small::before {
-  position: relative;
   content: "";
   position: absolute;
   top: 2px;
@@ -283,7 +281,7 @@ video {
   right: 6px;
   height: 45%;
 
-  border-radius: 999px;
+  border-radius: inherit;
 
   background: linear-gradient(
     to bottom,
@@ -292,9 +290,10 @@ video {
   );
 
   opacity: 0.25;
+  pointer-events: none;
 }
 
-/* hover */
+/* hover hiệu ứng glow xanh */
 .view-small:hover {
   background: linear-gradient(
     180deg,
@@ -312,6 +311,11 @@ video {
 /* click */
 .view-small:active {
   transform: scale(0.95);
+}
+
+/* ===== CHỈ lùi nút bên phải ===== */
+.right-card .view-small {
+  margin-right: 20px;
 }
 
 </style>
