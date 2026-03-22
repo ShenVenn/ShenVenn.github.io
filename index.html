@@ -141,7 +141,6 @@ video {
   opacity: 0.8;
 }
 
-/* bottom */
 .bottom-bar {
   position: absolute;
   bottom: 0;
@@ -151,11 +150,29 @@ video {
   justify-content: space-between;
   align-items: center;
 
-  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent);
-  backdrop-filter: blur(10px);
-  z-index: 3;
   border-radius: 0 0 28px 28px;
   overflow: hidden;
+
+  z-index: 3;
+}
+
+/* lớp blur thật */
+.bottom-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+
+  backdrop-filter: blur(14px);
+
+  border-radius: inherit;
+  z-index: -1;
 }
 
 .app-info {
