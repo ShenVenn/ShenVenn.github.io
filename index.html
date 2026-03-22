@@ -245,12 +245,29 @@ video {
 }
 
 .view-small {
-  background: #0a84ff;
-  border: none;
   padding: 7px 20px;
   border-radius: 20px;
-  color: white;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #4da3ff;
+  font-weight: 600;
+
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.view-small:hover {
+  background: rgba(77,163,255,0.2);
+  color: white;
+}
+
+.view-small:active {
+  transform: scale(0.95);
 }
 
 </style>
