@@ -23,6 +23,24 @@ body {
 
 .sidebar h2 { font-size: 16px; }
 .sidebar p { color: #aaa; margin: 12px 0; }
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* hover phát sáng */
+.logo:hover {
+  color: #fff;
+
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.7),
+    0 0 10px rgba(0,122,255,0.6),
+    0 0 18px rgba(0,122,255,0.4);
+
+  transform: scale(1.05);
+}
 
 /* ===== MAIN ===== */
 .main {
@@ -282,7 +300,7 @@ body {
 <body>
 
 <div class="sidebar">
-  <h2 onclick="goHome()" style="cursor:pointer;">App Store</h2>
+  <h2 class="logo" onclick="goHome()">App Store</h2>
   <p>Today</p>
   <p>Games</p>
   <p>Apps</p>
