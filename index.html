@@ -1,521 +1,381 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>App Store</title>
-
-<link rel="icon" type="image/png"
-href="https://i.ibb.co/GQ0SR6P7/b8b6fd228823037-Y3-Jvc-Cwy-Nj-Aw-LDIw-Mz-Qs-MTgw-LDgx-MQ.png">
+<link rel="icon" type="image/png" href="https://i.ibb.co/GQ0SR6P7/b8b6fd228823037-Y3-Jvc-Cwy-Nj-Aw-LDIw-Mz-Qs-MTgw-LDgx-MQ.png">
 
 <style>
+* { box-sizing: border-box; }
 
-*{
-  box-sizing:border-box;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000;
+  color: white;
+  display: flex;
 }
 
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  background:#000;
-  color:white;
-  display:flex;
-  overflow:hidden;
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #0d0d0d;
+  padding: 20px;
+  height: 100vh;
 }
 
-/* =========================
-   FACE ID LOADER
-========================= */
-
-#loader{
-  position:fixed;
-  inset:0;
-  background:#000;
-  z-index:999999;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  transition:
-    opacity .7s ease,
-    visibility .7s ease;
+.search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #1a1a1a;
+  color: white;
+  margin: 16px 0;
 }
 
-.face-container{
-  position:relative;
-  width:240px;
-  height:240px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
+.menu a {
+  display: block;
+  padding: 10px;
+  border-radius: 12px;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 6px;
 }
 
-.face-ring{
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.12);
-
-  box-shadow:
-    0 0 45px rgba(0,140,255,.18),
-    inset 0 0 25px rgba(255,255,255,.03);
+.menu a:hover {
+  background: #1f1f1f;
+  color: white;
 }
 
-.face-icon{
-  width:120px;
-  height:120px;
-
-  stroke:#4da3ff;
-  stroke-width:4;
-  fill:none;
-
-  z-index:2;
-
-  filter:drop-shadow(0 0 14px rgba(77,163,255,.55));
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 40px 50px;
 }
 
-.face-icon circle{
-  fill:#4da3ff;
+.header-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
-.scan-line{
-  position:absolute;
-
-  width:135px;
-  height:4px;
-
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #4da3ff,
-    transparent
-  );
-
-  border-radius:999px;
-
-  box-shadow:0 0 20px #4da3ff;
-
-  animation:scan 2s ease-in-out infinite;
+/* TODAY */
+.today {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 45px;
 }
 
-@keyframes scan{
-
-  0%{
-    transform:translateY(-60px);
-    opacity:0;
-  }
-
-  15%{
-    opacity:1;
-  }
-
-  50%{
-    transform:translateY(60px);
-    opacity:1;
-  }
-
-  100%{
-    transform:translateY(-60px);
-    opacity:0;
-  }
+.big-card {
+  flex: 2.8;
+  height: 460px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
 }
 
-.loader-text{
-  position:absolute;
-  bottom:-28px;
-
-  font-size:15px;
-  letter-spacing:1px;
-
-  color:rgba(255,255,255,.7);
+.small-card {
+  flex: 0.9;
+  height: 460px;
+  border-radius: 28px;
+  position: relative;
 }
 
-.success-check{
-
-  position:absolute;
-
-  font-size:95px;
-  font-weight:bold;
-
-  color:#00ff88;
-
-  opacity:0;
-  transform:scale(.5);
-
-  transition:all .5s ease;
-
-  text-shadow:
-    0 0 25px rgba(0,255,136,.7);
+/* VIDEO WRAPPER (NEW) */
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-.success .success-check{
-  opacity:1;
-  transform:scale(1);
+.preview {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transition: opacity 0.6s ease;
 }
 
-.success .face-icon,
-.success .scan-line,
-.success .loader-text{
-  opacity:0;
-  transition:.4s;
+.card-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px; 
 }
 
-/* =========================
-   SIDEBAR
-========================= */
-
-.sidebar{
-  width:240px;
-  background:#0d0d0d;
-  padding:20px;
-  height:100vh;
+.preview {
+  z-index: 2;
 }
 
-.search{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  background:#1a1a1a;
-  color:white;
-  margin:16px 0;
+video {
+  z-index: 1;
 }
 
-.menu a{
-  display:block;
-  padding:10px;
-  border-radius:12px;
-  color:#aaa;
-  text-decoration:none;
-  margin-bottom:6px;
+/* overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  padding: 26px;
+  z-index: 3;
 }
 
-.menu a:hover{
-  background:#1f1f1f;
-  color:white;
+.overlay span {
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 1px;
 }
 
-/* =========================
-   MAIN
-========================= */
-
-.main{
-  flex:1;
-  padding:40px 50px;
-  overflow:auto;
+.overlay h1 {
+  font-size: 30px;
+  margin: 8px 0;
 }
 
-.header-title{
-  font-size:30px;
-  font-weight:600;
-  margin-bottom:30px;
+.overlay h2 {
+  font-size: 22px;
 }
 
-/* =========================
-   TODAY
-========================= */
-
-.today{
-  display:flex;
-  gap:28px;
-  margin-bottom:45px;
+.overlay p {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
-.big-card{
-  flex:2.8;
-  height:460px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
+/* bottom */
+.bottom-bar {
+  position: absolute;
+  bottom: -10px;
+  width: 100%;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent);
+  backdrop-filter: blur(12px);
+  z-index: 3;
+  border-radius: 0 0 28px 28px;
 }
 
-.small-card{
-  flex:.9;
-  height:460px;
-  border-radius:28px;
-  position:relative;
+.app-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-.video-wrapper{
-  width:100%;
-  height:100%;
-  position:relative;
+.app-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
 }
 
-.preview{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:2;
-  transition:opacity .6s ease;
-}
+.app-name { font-size: 14px; font-weight: 600; }
+.app-type { font-size: 12px; opacity: 0.6; }
 
-.card-img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:28px;
-}
+.view-btn {
+  position: relative;
+  padding: 7px 22px;
+  border-radius: 999px;
 
-video{
-  z-index:1;
-}
-
-/* =========================
-   OVERLAY
-========================= */
-
-.overlay{
-  position:absolute;
-  top:0;
-  padding:26px;
-  z-index:3;
-}
-
-.overlay span{
-  font-size:12px;
-  opacity:.7;
-  letter-spacing:1px;
-}
-
-.overlay h1{
-  font-size:30px;
-  margin:8px 0;
-}
-
-.overlay h2{
-  font-size:22px;
-}
-
-.overlay p{
-  font-size:14px;
-  opacity:.8;
-}
-
-/* =========================
-   BOTTOM BAR
-========================= */
-
-.bottom-bar{
-  position:absolute;
-  bottom:-10px;
-  width:100%;
-  padding:10px 16px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,.9),
-    rgba(0,0,0,.4),
-    transparent
-  );
-
-  backdrop-filter:blur(12px);
-
-  z-index:3;
-
-  border-radius:0 0 28px 28px;
-}
-
-.app-info{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.app-info img{
-  width:50px;
-  height:50px;
-  border-radius:14px;
-}
-
-.app-name{
-  font-size:14px;
-  font-weight:600;
-}
-
-.app-type{
-  font-size:12px;
-  opacity:.6;
-}
-
-/* =========================
-   BUTTON
-========================= */
-
-.view-btn,
-.view-small{
-
-  position:relative;
-
-  padding:7px 22px;
-
-  border-radius:999px;
-
-  background:linear-gradient(
+  background: linear-gradient(
     180deg,
-    rgba(255,255,255,.25),
-    rgba(255,255,255,.05)
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.05)
   );
 
-  border:1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,0.25);
 
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-  color:white;
-  font-weight:600;
+  color: white;
+  font-weight: 600;
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.5),
-    inset 0 -1px 0 rgba(255,255,255,.05),
-    0 4px 18px rgba(0,0,0,.4);
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(255,255,255,0.05),
+    0 4px 18px rgba(0,0,0,0.4);
 
-  cursor:pointer;
-  transition:all .25s ease;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.view-btn::before,
-.view-small::before{
-  content:"";
+/* highlight kính */
+.view-btn::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  right: 6px;
+  height: 45%;
+  border-radius: inherit;
 
-  position:absolute;
-
-  top:2px;
-  left:6px;
-  right:6px;
-
-  height:45%;
-
-  border-radius:inherit;
-
-  background:linear-gradient(
+  background: linear-gradient(
     to bottom,
-    rgba(255,255,255,.55),
+    rgba(255,255,255,0.55),
     transparent
   );
 
-  opacity:.25;
-  pointer-events:none;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
-.view-btn:hover,
-.view-small:hover{
-
-  background:linear-gradient(
+/* hover glow */
+.view-btn:hover {
+  background: linear-gradient(
     180deg,
-    rgba(77,163,255,.45),
-    rgba(77,163,255,.15)
+    rgba(77,163,255,0.45),
+    rgba(77,163,255,0.15)
   );
+
+  color: white;
 
   box-shadow:
-    0 6px 25px rgba(77,163,255,.35),
-    inset 0 1px 0 rgba(255,255,255,.6);
+    0 6px 25px rgba(77,163,255,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
-.view-btn:active,
-.view-small:active{
-  transform:scale(.95);
+/* click */
+.view-btn:active {
+  transform: scale(0.95);
 }
 
-/* =========================
-   APPS
-========================= */
-
-.apps-row{
-  display:flex;
-  gap:28px;
+/* APPS */
+.apps-row {
+  display: flex;
+  gap: 28px;
 }
 
-.app-card{
-  border-radius:30px;
-  padding:26px;
-  height:560px;
+.app-card {
+  border-radius: 30px;
+  padding: 26px;
+  height: 560px;
+  background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+}
 
-  background:linear-gradient(
-    145deg,
-    #2c2c2e,
-    #1c1c1e
+.left-card { flex: 0.6; }
+.right-card { flex: 2; }
+
+.app-card span {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.app-card h2 {
+  margin: 8px 0;
+}
+
+.app-desc {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 18px;
+}
+
+.app-list {
+  overflow-y: auto;
+}
+
+.app-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* ITEM */
+.app-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.app-left {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.app-left img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+/* ===== GLASS BUTTON STYLE (áp dụng cho tất cả nút View) ===== */
+.view-small {
+  position: relative;
+  padding: 7px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.05)
   );
 
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  border: 1px solid rgba(255,255,255,0.25);
 
-  display:flex;
-  flex-direction:column;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: white;
+  font-weight: 600;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(255,255,255,0.05),
+    0 4px 18px rgba(0,0,0,0.4);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.left-card{
-  flex:.6;
+/* highlight ánh kính phía trên */
+.view-small::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  right: 6px;
+  height: 45%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55),
+    transparent
+  );
+
+  opacity: 0.25;
+  pointer-events: none;
 }
 
-.right-card{
-  flex:2;
+/* hover hiệu ứng glow xanh */
+.view-small:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(77,163,255,0.45),
+    rgba(77,163,255,0.15)
+  );
+
+  color: white;
+
+  box-shadow:
+    0 6px 25px rgba(77,163,255,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
-.app-card span{
-  font-size:12px;
-  opacity:.5;
+/* click */
+.view-small:active {
+  transform: scale(0.95);
 }
 
-.app-card h2{
-  margin:8px 0;
-}
-
-.app-desc{
-  font-size:14px;
-  opacity:.6;
-  margin-bottom:18px;
-}
-
-.app-list{
-  overflow-y:auto;
-}
-
-.app-list::-webkit-scrollbar{
-  display:none;
-}
-
-/* =========================
-   ITEM
-========================= */
-
-.app-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 0;
-
-  border-bottom:
-  1px solid rgba(255,255,255,.05);
-}
-
-.app-left{
-  display:flex;
-  gap:14px;
-  align-items:center;
-}
-
-.app-left img{
-  width:64px;
-  height:64px;
-  border-radius:16px;
-}
-
-.right-card .view-small{
-  margin-right:20px;
+/* ===== CHỈ lùi nút bên phải ===== */
+.right-card .view-small {
+  margin-right: 20px;
 }
 
 </style>
@@ -523,186 +383,93 @@ video{
 
 <body>
 
-<!-- =========================
-     FACE ID LOADER
-========================= -->
-
-<div id="loader">
-
-  <div class="face-container">
-
-    <div class="face-ring"></div>
-
-    <div class="scan-line"></div>
-
-    <svg class="face-icon" viewBox="0 0 100 100">
-
-      <path d="M30 35 V28 Q30 20 38 20 H45"/>
-      <path d="M70 35 V28 Q70 20 62 20 H55"/>
-      <path d="M30 65 V72 Q30 80 38 80 H45"/>
-      <path d="M70 65 V72 Q70 80 62 80 H55"/>
-
-      <circle cx="40" cy="45" r="3"/>
-      <circle cx="60" cy="45" r="3"/>
-
-      <path d="M42 60 Q50 66 58 60"/>
-
-    </svg>
-
-    <div class="success-check">✓</div>
-
-    <div class="loader-text">
-      Scanning Face ID...
-    </div>
-
-  </div>
-
-</div>
-
-<!-- =========================
-     SIDEBAR
-========================= -->
-
 <div class="sidebar">
-
   <h2>📱 App Store</h2>
-
   <input class="search" placeholder="Search">
-
   <div class="menu">
     <a href="#">Today</a>
     <a href="#">Games</a>
     <a href="#">Apps</a>
   </div>
-
 </div>
-
-<!-- =========================
-     MAIN
-========================= -->
 
 <div class="main">
 
-  <div class="header-title">
-    The Biggest Apps and Games
-  </div>
+  <div class="header-title">The Biggest Apps and Games</div>
 
   <!-- TODAY -->
-
   <div class="today">
 
     <!-- BIG -->
-
     <div class="big-card">
 
       <div class="video-wrapper">
+        <!-- ẢNH HIỆN NGAY -->
+        <img class="preview" src="https://i.ibb.co/Y7m9kyr1/Screenshot-2026-03-19-230214.png">
 
-        <img class="preview"
-        src="https://i.ibb.co/Y7m9kyr1/Screenshot-2026-03-19-230214.png">
-
-        <video id="mainVideo"
-        class="card-img"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto">
-
-          <source
-          src="https://raw.githubusercontent.com/ShenVenn/app-store-assets/main/332701_medium.mp4"
-          type="video/mp4">
-
+        <!-- VIDEO -->
+        <video id="mainVideo" class="card-img" autoplay muted loop playsinline preload="auto">
+          <source src="https://raw.githubusercontent.com/ShenVenn/app-store-assets/main/332701_medium.mp4" type="video/mp4">
         </video>
-
       </div>
 
       <div class="overlay">
-
         <span>APP STORE EXCLUSIVE</span>
-
-        <h1>
-          Under the hood of Arknights
-        </h1>
-
-        <p>
-          Behind the scenes with developers.
-        </p>
-
+        <h1>Under the hood of Arknights</h1>
+        <p>Behind the scenes with developers.</p>
       </div>
 
       <div class="bottom-bar">
-
         <div class="app-info">
-
-          <img
-          src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
-
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
           <div>
-
-            <div class="app-name">
-              Arknights
-            </div>
-
-            <div class="app-type">
-              Role-Playing
-            </div>
-
+            <div class="app-name">Arknights</div>
+            <div class="app-type">Role-Playing</div>
           </div>
-
         </div>
-
-        <button class="view-btn">
-          View
-        </button>
-
+        <button class="view-btn" onclick="openApp('arknights.html')">View</button>
       </div>
-
     </div>
 
     <!-- SMALL -->
-
     <div class="small-card">
-
-      <img class="card-img"
-      src="https://i.ibb.co/rRW5tFd7/lossless-scaling-cdkeys.webp">
+      <img class="card-img" src="https://i.ibb.co/rRW5tFd7/lossless-scaling-cdkeys.webp">
 
       <div class="overlay">
-
         <span>QUICK TIP</span>
-
         <h2>Top Heroes</h2>
-
         <p>Build your kingdom.</p>
-
       </div>
 
       <div class="bottom-bar">
-
         <div class="app-info">
-
-          <img
-          src="https://i.ibb.co/sJdNzCJ1/images-2.png">
-
+          <img src="https://i.ibb.co/sJdNzCJ1/images-2.png">
           <div>
-
-            <div class="app-name">
-              LossLess Scaling
-            </div>
-
-            <div class="app-type">
-              Tăng FPS + Graphics
-            </div>
-
+            <div class="app-name">LossLess Scaling</div>
+            <div class="app-type">Tăng FPS + Graphics lên X2,X3...</div>
           </div>
-
         </div>
-
-        <button class="view-btn">
-          View
-        </button>
-
+        <button class="view-btn" onclick="openApp('LossLessScaling.html')">View</button>
       </div>
+    </div>
 
+  </div>
+
+  <!-- APPS -->
+  <div class="apps-row">
+
+    <div class="app-card left-card">
+      <span>OUR FAVOURITES</span>
+      <h2>Top apps this week</h2>
+
+      <div class="app-list" id="leftList"></div>
+    </div>
+
+    <div class="app-card right-card">
+      <span>Thiết Yếu</span>
+      <h2>Các App Hiện Có </h2>
+
+      <div class="app-list" id="rightList"></div>
     </div>
 
   </div>
@@ -710,54 +477,149 @@ video{
 </div>
 
 <script>
+// FADE VIDEO
+const video = document.getElementById("mainVideo");
+const preview = document.querySelector(".preview");
 
-/* =========================
-   FACE ID EFFECT
-========================= */
-
-window.addEventListener("load",()=>{
-
-  const loader =
-  document.getElementById("loader");
-
-  setTimeout(()=>{
-
-    loader.classList.add("success");
-
-    document.querySelector(".loader-text")
-    .innerText = "Face ID Verified";
-
-  },2600);
-
-  setTimeout(()=>{
-
-    loader.style.opacity = "0";
-    loader.style.visibility = "hidden";
-
-  },4200);
-
+video.addEventListener("loadeddata", () => {
+  preview.style.display = "none";
 });
 
-/* =========================
-   VIDEO FADE
-========================= */
+// DATA
+const leftApps = [
+  {
+    name: "CapCut PRO",
+    type: "Ứng dụng chỉnh sửa video",
+    icon: "https://i.ibb.co/fzNjnPzQ/e002205cf0c57b42ee6045d4ae5ec2ce.jpg",
+    link: "Capcut.html"
+  },
+  {
+    name: "IObit Uninstaller",
+    type: "Xóa file sạch vs tận gốc",
+    icon: "https://i.ibb.co/4Rf8N4Xz/images-1.png",
+    link: "IObit Uninstaller.html"
+  },
+   {
+    name: "LossLess Scaling",
+    type: "Tăng FPS + Graphics lên X2,X3...",
+    icon: "https://i.ibb.co/sJdNzCJ1/images-2.png",
+    link: "LossLessScaling.html"
+  },
+  {
+    name: "IDM",
+    type: "Tăng tốc độ tải xuống",
+    icon: "https://i.ibb.co/1fmN4Nd8/Internet-Download-Manager-02.jpg",
+    link: "IDM.html"
+  },
+  {
+    name: "DriverBooster 12",
+    type: "Trình cập nhật trình điều khiển",
+    icon: "https://i.ibb.co/4nSpPv6W/Driver-booster-12-license-key-2025-1.png",
+    link: "DriverBooster.html"
+  }
+];
 
-const video =
-document.getElementById("mainVideo");
+const rightApps = [
+  {
+    name: "Dlssg FSR3",
+    type: "Bật tạo khung hình cho card 20 & 30 Series ",
+    icon: "https://i.ibb.co/rGHvLmFZ/t-i-xu-ng.gif",
+    link: "dlssg-to-fsr3.html"
+  },
+  {
+    name: "Activation Win10",
+    type: "Crack bản quyền win10",
+    icon: "https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png",
+    link: "Activation Win10.html"
+  },
+  {
+    name: "Defender",
+    type: "Tắt phần mền diệt virus",
+    icon: "https://i.ibb.co/G38YxKhh/windows-defender-off.png",
+    link: "Defender.html"
+  },
+  {
+    name: "CapCut PRO",
+    type: "Ứng dụng chỉnh sửa video đa năng",
+    icon: "https://i.ibb.co/fzNjnPzQ/e002205cf0c57b42ee6045d4ae5ec2ce.jpg",
+    link: "Capcut.html"
+  },
+  {
+    name: "IDM",
+    type: "Tăng tốc độ tải xuống",
+    icon: "https://i.ibb.co/1fmN4Nd8/Internet-Download-Manager-02.jpg",
+    link: "IDM.html"
+  },
+  {
+    name: "BloatBox",
+    type: "Xóa các BloatWare Win10",
+    icon: "https://i.ibb.co/pvNzDrQT/bloatbox-icon.avif",
+    link: "Bloatbox.html"
+  },
+  {
+    name: "DriverBooster 12",
+    type: "Trình cập nhật trình điều khiển",
+    icon: "https://i.ibb.co/4nSpPv6W/Driver-booster-12-license-key-2025-1.png",
+    link: "DriverBooster.html"
+  },
+  {
+    name: "Everything",
+    type: "Tìm kiếm định vị file",
+    icon: "https://i.ibb.co/jkZXPC7T/images.png",
+    link: "Everything.html"
+  },
+  {
+    name: "IObit Uninstaller",
+    type: "Xóa file sạch vs tận gốc",
+    icon: "https://i.ibb.co/4Rf8N4Xz/images-1.png",
+    link: "IObit Uninstaller.html"
+  },
+  {
+    name: "LossLess Scaling",
+    type: "Tăng FPS + Graphics lên X2,X3...",
+    icon: "https://i.ibb.co/sJdNzCJ1/images-2.png",
+    link: "LossLessScaling.html"
+  },
+  {
+    name: "Winrar",
+    type: "Nén, Mã hóa, Gói và Backup",
+    icon: "https://i.ibb.co/CpyX3Fjs/33-1692590672-20230821103612-12c-210823-175906-800-resize.jpg",
+    link: "Winrar.html"
+  }
+];
 
-const preview =
-document.querySelector(".preview");
+// RENDER
+function renderApps(id, apps) {
+  const box = document.getElementById(id);
+  box.innerHTML = "";
 
-video.addEventListener("loadeddata",()=>{
+  apps.forEach(app => {
+    const div = document.createElement("div");
+    div.className = "app-item";
 
-  preview.style.opacity = "0";
+    div.innerHTML = `
+      <div class="app-left">
+        <img src="${app.icon}">
+        <div>
+          ${app.name}
+          <small style="display:block;opacity:0.6;margin-top:6px;">${app.type}</small>
+        </div>
+      </div>
+      <button class="view-small" onclick="openApp('${app.link}')">View</button>
+    `;
 
-  setTimeout(()=>{
-    preview.style.display = "none";
-  },600);
+    box.appendChild(div);
+  });
+}
 
-});
+// CLICK
+function openApp(link) {
+  window.location.href = link;
+}
 
+// INIT
+renderApps("leftList", leftApps);
+renderApps("rightList", rightApps);
 </script>
 
 </body>
