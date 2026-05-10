@@ -1,6 +1,3 @@
-# Full App Store Code With Loader
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,44 +14,6 @@ body {
   background: #000;
   color: white;
   display: flex;
-}
-
-/* ===== LOADER ===== */
-
-#loader{
-  position:fixed;
-  inset:0;
-  background:#000;
-  z-index:999999;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  transition:
-  opacity .6s ease,
-  visibility .6s ease;
-}
-
-.progress-10 {
-  width:120px;
-  height:20px;
-  border-radius:20px;
-
-  background:
-   linear-gradient(#4da3ff 0 0) 0/0% no-repeat
-   rgba(255,255,255,0.12);
-
-  box-shadow:
-  0 0 25px rgba(77,163,255,0.25);
-
-  animation:p10 2s infinite steps(10);
-}
-
-@keyframes p10 {
-  100% {
-    background-size:110%;
-  }
 }
 
 /* SIDEBAR */
@@ -123,7 +82,7 @@ body {
   position: relative;
 }
 
-/* VIDEO WRAPPER */
+/* VIDEO WRAPPER (NEW) */
 .video-wrapper {
   width: 100%;
   height: 100%;
@@ -144,7 +103,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 28px;
+  border-radius: 28px; 
+}
+
+.preview {
+  z-index: 2;
 }
 
 video {
@@ -210,7 +173,137 @@ video {
 .app-name { font-size: 14px; font-weight: 600; }
 .app-type { font-size: 12px; opacity: 0.6; }
 
-.view-btn,
+.view-btn {
+  position: relative;
+  padding: 7px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.05)
+  );
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: white;
+  font-weight: 600;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(255,255,255,0.05),
+    0 4px 18px rgba(0,0,0,0.4);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* highlight kính */
+.view-btn::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  right: 6px;
+  height: 45%;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55),
+    transparent
+  );
+
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* hover glow */
+.view-btn:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(77,163,255,0.45),
+    rgba(77,163,255,0.15)
+  );
+
+  color: white;
+
+  box-shadow:
+    0 6px 25px rgba(77,163,255,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* click */
+.view-btn:active {
+  transform: scale(0.95);
+}
+
+/* APPS */
+.apps-row {
+  display: flex;
+  gap: 28px;
+}
+
+.app-card {
+  border-radius: 30px;
+  padding: 26px;
+  height: 560px;
+  background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.left-card { flex: 0.6; }
+.right-card { flex: 2; }
+
+.app-card span {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.app-card h2 {
+  margin: 8px 0;
+}
+
+.app-desc {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 18px;
+}
+
+.app-list {
+  overflow-y: auto;
+}
+
+.app-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* ITEM */
+.app-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.app-left {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.app-left img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+/* ===== GLASS BUTTON STYLE (áp dụng cho tất cả nút View) ===== */
 .view-small {
   position: relative;
   padding: 7px 22px;
@@ -239,58 +332,48 @@ video {
   transition: all 0.25s ease;
 }
 
-.view-btn:hover,
+/* highlight ánh kính phía trên */
+.view-small::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  right: 6px;
+  height: 45%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55),
+    transparent
+  );
+
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* hover hiệu ứng glow xanh */
 .view-small:hover {
   background: linear-gradient(
     180deg,
     rgba(77,163,255,0.45),
     rgba(77,163,255,0.15)
   );
+
+  color: white;
+
+  box-shadow:
+    0 6px 25px rgba(77,163,255,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
-/* APPS */
-.apps-row {
-  display: flex;
-  gap: 28px;
+/* click */
+.view-small:active {
+  transform: scale(0.95);
 }
 
-.app-card {
-  border-radius: 30px;
-  padding: 26px;
-  height: 560px;
-  background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  display: flex;
-  flex-direction: column;
-}
-
-.left-card { flex: 0.6; }
-.right-card { flex: 2; }
-
-.app-list {
-  overflow-y: auto;
-}
-
-.app-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.app-left {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.app-left img {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-}
-
+/* ===== CHỈ lùi nút bên phải ===== */
 .right-card .view-small {
   margin-right: 20px;
 }
@@ -299,11 +382,6 @@ video {
 </head>
 
 <body>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="progress-10"></div>
-</div>
 
 <div class="sidebar">
   <h2>📱 App Store</h2>
@@ -326,8 +404,10 @@ video {
     <div class="big-card">
 
       <div class="video-wrapper">
+        <!-- ẢNH HIỆN NGAY -->
         <img class="preview" src="https://i.ibb.co/Y7m9kyr1/Screenshot-2026-03-19-230214.png">
 
+        <!-- VIDEO -->
         <video id="mainVideo" class="card-img" autoplay muted loop playsinline preload="auto">
           <source src="https://raw.githubusercontent.com/ShenVenn/app-store-assets/main/332701_medium.mp4" type="video/mp4">
         </video>
@@ -397,21 +477,6 @@ video {
 </div>
 
 <script>
-
-// LOADER
-window.addEventListener("load",()=>{
-
-  const loader = document.getElementById("loader");
-
-  setTimeout(()=>{
-
-    loader.style.opacity = "0";
-    loader.style.visibility = "hidden";
-
-  },2200);
-
-});
-
 // FADE VIDEO
 const video = document.getElementById("mainVideo");
 const preview = document.querySelector(".preview");
@@ -427,10 +492,94 @@ const leftApps = [
     type: "Ứng dụng chỉnh sửa video",
     icon: "https://i.ibb.co/fzNjnPzQ/e002205cf0c57b42ee6045d4ae5ec2ce.jpg",
     link: "Capcut.html"
+  },
+  {
+    name: "IObit Uninstaller",
+    type: "Xóa file sạch vs tận gốc",
+    icon: "https://i.ibb.co/4Rf8N4Xz/images-1.png",
+    link: "IObit Uninstaller.html"
+  },
+   {
+    name: "LossLess Scaling",
+    type: "Tăng FPS + Graphics lên X2,X3...",
+    icon: "https://i.ibb.co/sJdNzCJ1/images-2.png",
+    link: "LossLessScaling.html"
+  },
+  {
+    name: "IDM",
+    type: "Tăng tốc độ tải xuống",
+    icon: "https://i.ibb.co/1fmN4Nd8/Internet-Download-Manager-02.jpg",
+    link: "IDM.html"
+  },
+  {
+    name: "DriverBooster 12",
+    type: "Trình cập nhật trình điều khiển",
+    icon: "https://i.ibb.co/4nSpPv6W/Driver-booster-12-license-key-2025-1.png",
+    link: "DriverBooster.html"
   }
 ];
 
 const rightApps = [
+  {
+    name: "Dlssg FSR3",
+    type: "Bật tạo khung hình cho card 20 & 30 Series ",
+    icon: "https://i.ibb.co/rGHvLmFZ/t-i-xu-ng.gif",
+    link: "dlssg-to-fsr3.html"
+  },
+  {
+    name: "Activation Win10",
+    type: "Crack bản quyền win10",
+    icon: "https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png",
+    link: "Activation Win10.html"
+  },
+  {
+    name: "Defender",
+    type: "Tắt phần mền diệt virus",
+    icon: "https://i.ibb.co/G38YxKhh/windows-defender-off.png",
+    link: "Defender.html"
+  },
+  {
+    name: "CapCut PRO",
+    type: "Ứng dụng chỉnh sửa video đa năng",
+    icon: "https://i.ibb.co/fzNjnPzQ/e002205cf0c57b42ee6045d4ae5ec2ce.jpg",
+    link: "Capcut.html"
+  },
+  {
+    name: "IDM",
+    type: "Tăng tốc độ tải xuống",
+    icon: "https://i.ibb.co/1fmN4Nd8/Internet-Download-Manager-02.jpg",
+    link: "IDM.html"
+  },
+  {
+    name: "BloatBox",
+    type: "Xóa các BloatWare Win10",
+    icon: "https://i.ibb.co/pvNzDrQT/bloatbox-icon.avif",
+    link: "Bloatbox.html"
+  },
+  {
+    name: "DriverBooster 12",
+    type: "Trình cập nhật trình điều khiển",
+    icon: "https://i.ibb.co/4nSpPv6W/Driver-booster-12-license-key-2025-1.png",
+    link: "DriverBooster.html"
+  },
+  {
+    name: "Everything",
+    type: "Tìm kiếm định vị file",
+    icon: "https://i.ibb.co/jkZXPC7T/images.png",
+    link: "Everything.html"
+  },
+  {
+    name: "IObit Uninstaller",
+    type: "Xóa file sạch vs tận gốc",
+    icon: "https://i.ibb.co/4Rf8N4Xz/images-1.png",
+    link: "IObit Uninstaller.html"
+  },
+  {
+    name: "LossLess Scaling",
+    type: "Tăng FPS + Graphics lên X2,X3...",
+    icon: "https://i.ibb.co/sJdNzCJ1/images-2.png",
+    link: "LossLessScaling.html"
+  },
   {
     name: "Winrar",
     type: "Nén, Mã hóa, Gói và Backup",
@@ -471,9 +620,7 @@ function openApp(link) {
 // INIT
 renderApps("leftList", leftApps);
 renderApps("rightList", rightApps);
-
 </script>
 
 </body>
 </html>
-```
