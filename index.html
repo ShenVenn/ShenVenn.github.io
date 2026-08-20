@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Store</title>
 <link rel="icon" type="image/png" href="https://i.ibb.co/GQ0SR6P7/b8b6fd228823037-Y3-Jvc-Cwy-Nj-Aw-LDIw-Mz-Qs-MTgw-LDgx-MQ.png">
+<script src="performance.js" defer></script>
 
 <style>
 * { box-sizing: border-box; }
@@ -405,12 +407,10 @@ video {
 
       <div class="video-wrapper">
         <!-- ẢNH HIỆN NGAY -->
-        <img class="preview" src="https://i.ibb.co/Y7m9kyr1/Screenshot-2026-03-19-230214.png">
+        <img class="preview" src="https://i.ibb.co/Y7m9kyr1/Screenshot-2026-03-19-230214.png" fetchpriority="high" decoding="async" alt="Arknights preview">
 
         <!-- VIDEO -->
-        <video id="mainVideo" class="card-img" autoplay muted loop playsinline preload="auto">
-          <source src="https://raw.githubusercontent.com/ShenVenn/app-store-assets/main/332701_medium.mp4" type="video/mp4">
-        </video>
+        <video id="mainVideo" class="card-img" muted loop playsinline preload="none" data-src="https://raw.githubusercontent.com/ShenVenn/app-store-assets/main/332701_medium.mp4" data-type="video/mp4"></video>
       </div>
 
       <div class="overlay">
@@ -421,7 +421,7 @@ video {
 
       <div class="bottom-bar">
         <div class="app-info">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+          <img loading="lazy" decoding="async" src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
           <div>
             <div class="app-name">Arknights</div>
             <div class="app-type">Role-Playing</div>
@@ -433,7 +433,7 @@ video {
 
     <!-- SMALL -->
     <div class="small-card">
-      <img class="card-img" src="https://i.ibb.co/rRW5tFd7/lossless-scaling-cdkeys.webp">
+      <img class="card-img" src="https://i.ibb.co/rRW5tFd7/lossless-scaling-cdkeys.webp" loading="lazy" decoding="async" alt="Lossless Scaling">
 
       <div class="overlay">
         <span>QUICK TIP</span>
@@ -443,7 +443,7 @@ video {
 
       <div class="bottom-bar">
         <div class="app-info">
-          <img src="https://i.ibb.co/sJdNzCJ1/images-2.png">
+          <img loading="lazy" decoding="async" src="https://i.ibb.co/sJdNzCJ1/images-2.png">
           <div>
             <div class="app-name">LossLess Scaling</div>
             <div class="app-type">Tăng FPS + Graphics lên X2,X3...</div>
@@ -599,7 +599,7 @@ function renderApps(id, apps) {
 
     div.innerHTML = `
       <div class="app-left">
-        <img src="${app.icon}">
+        <img loading="lazy" decoding="async" src="${app.icon}">
         <div>
           ${app.name}
           <small style="display:block;opacity:0.6;margin-top:6px;">${app.type}</small>
