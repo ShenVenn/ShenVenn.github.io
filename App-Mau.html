@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="performance.js" defer></script>
+<title>Mẫu App Store</title>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#000;color:white;display:flex}
+/* ===== SIDEBAR ===== */
+.sidebar{width:230px;background:#0b0b0b;padding:20px;height:100vh}.sidebar h2{font-size:26px;font-weight:700;cursor:pointer;text-shadow:0 0 6px rgba(255,255,255,.4),0 0 12px rgba(0,122,255,.25)}.sidebar h2:hover{transform:scale(1.06);text-shadow:0 0 6px rgba(255,255,255,.8),0 0 16px rgba(0,122,255,.7),0 0 30px rgba(0,122,255,.5)}.sidebar p{color:#aaa;margin:12px 0}.logo{font-size:26px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;text-shadow:0 0 6px rgba(255,255,255,.4),0 0 12px rgba(0,122,255,.25)}.logo-icon{width:32px;height:32px}.logo:hover{transform:scale(1.06);text-shadow:0 0 6px rgba(255,255,255,.8),0 0 16px rgba(0,122,255,.7),0 0 30px rgba(0,122,255,.5)}
+/* ===== MAIN ===== */
+.main{flex:1;overflow-y:auto}
+/* ===== HERO ===== */
+.hero{position:relative;padding:40px 45px;overflow:hidden;height:200px;background:radial-gradient(ellipse at center,#0a0a0a 0%,#000 70%)}.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(120px) saturate(180%) brightness(1.2);transform:scale(1.8);opacity:.9}.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,.15),rgba(0,0,0,.05),rgba(0,0,0,.2),rgba(0,0,0,.5));z-index:1}.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 32% 50%,rgba(255,255,255,.22),rgba(255,255,255,.1) 30%,transparent 65%);z-index:1}.hero-content{position:relative;z-index:2;display:flex;align-items:center;gap:40px;height:100%}
+/* ===== ICON & TEXT ===== */
+.icon{width:200px;height:200px;border-radius:40px;position:relative;overflow:hidden;background:#000;box-shadow:0 25px 60px rgba(0,0,0,.6),0 0 20px rgba(255,255,255,.05)}.icon img{width:100%;height:100%;object-fit:cover}.icon::before{content:"";position:absolute;inset:0;border-radius:40px;background:linear-gradient(145deg,rgba(255,255,255,.35),transparent 40%,rgba(255,255,255,.1))}.icon::after{content:"";position:absolute;inset:0;border-radius:40px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),inset 0 2px 6px rgba(255,255,255,.25),inset 0 -3px 8px rgba(0,0,0,.4)}.info h1{font-size:34px;margin:0}.sub{color:#bbb;margin-top:6px}.get-btn{margin-top:18px;display:inline-block;background:#007aff;padding:10px 28px;border-radius:20px;font-weight:600;cursor:pointer;color:#fff;text-decoration:none}
+/* ===== INFO BAR ===== */
+.info-bar{display:flex;justify-content:space-between;align-items:center;padding:30px 80px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,.05)}.info-box{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:90px}.info-box small{color:#777;font-size:11px;letter-spacing:1px}.info-box h3{margin:6px 0 0;font-size:22px;font-weight:600}.info-box span{font-size:12px;color:#999;margin-top:2px}
+/* ===== PREVIEW ===== */
+.preview{position:relative;padding:30px 0;margin-top:-20px}.slider-wrapper{position:relative;margin:0 60px;border-radius:25px;overflow:hidden;background:#111;box-shadow:0 0 0 1px rgba(255,255,255,.08)}.slider{display:flex;gap:20px;padding:20px;transition:transform .4s ease}.slider img{width:calc((100% - 40px)/3);aspect-ratio:16/9;border-radius:18px;object-fit:cover;object-position:top;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.05)}.nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer}.nav.left{left:0}.nav.right{right:0}.nav span{font-size:40px;color:rgba(255,255,255,.6)}.nav:hover span{color:#fff}
+/* ===== DESC ===== */
+.desc{padding:0 60px 40px;color:#ccc;line-height:1.6}.divider{height:1px;margin:20px 60px;background:linear-gradient(to right,transparent,rgba(255,255,255,.15),transparent)}.title-glow{font-size:18px;font-weight:600;color:#fff;text-shadow:0 0 2px rgba(255,255,255,.6),0 0 4px rgba(255,255,255,.4),0 0 8px rgba(255,255,255,.2)}
+</style>
+</head>
+<body>
+<div class="sidebar"><h2 class="logo" id="homeLink"><img loading="lazy" decoding="async" id="storeLogo" class="logo-icon">App Store</h2><p>Today</p><p>Games</p><p>Apps</p><p>Arcade</p><hr><p>Categories</p></div>
+<div class="main">
+  <div class="hero"><div class="hero-bg" id="heroBg"></div><div class="hero-content"><div class="icon"><img loading="lazy" decoding="async" id="appIcon"></div><div class="info"><h1 id="appName"></h1><div class="sub" id="tagline"></div><div class="sub" id="price"></div><a class="get-btn" id="downloadButton" target="_blank" rel="noopener">GET</a></div></div></div>
+  <div class="info-bar" id="infoBar"></div>
+  <div class="preview"><button class="nav left" onclick="slide(-1)"><span>‹</span></button><div class="slider-wrapper"><div class="slider" id="slider"></div></div><button class="nav right" onclick="slide(1)"><span>›</span></button></div>
+  <div class="divider"></div><div class="desc"><span class="title-glow" id="descriptionTitle"></span><br><br><div id="description"></div></div>
+</div>
+<script>
+/* =====================================================================
+   CHỈ SỬA KHỐI NÀY. Điền theo thứ tự để tạo một file app mới.
+   Sau đó đổi tên file, ví dụ: Winrar.html hoặc Bloatbox.html.
+   ===================================================================== */
+const APP = {
+  /* 1. Thông tin chung */
+  pageTitle: "Tên ứng dụng | App Store",
+  homeUrl: "index.html",
+  storeLogo: "https://i.ibb.co/66fFVKh/831378.png",
+  /* 2. Hero */
+  name: "Tên ứng dụng",
+  tagline: "Mô tả ngắn của ứng dụng",
+  price: "Free · In-App Purchases",
+  icon: "https://placehold.co/400x400/222/ffffff?text=APP",
+  downloadUrl: "#",
+  /* 3. Thanh thông tin: [nhãn, chữ lớn, chữ nhỏ] */
+  details: [
+    ["RATINGS","4.8 ★",""],["AGES","7+","Years"],["CATEGORY","ACTION",""],
+    ["DEVELOPER","TÊN DEV","CORPORATION"],["LANGUAGE","VN","+ 40 More"],["SIZE","0","MB"]
+  ],
+  /* 4. Ảnh xem trước: thêm/xoá URL theo từng dòng */
+  screenshots: [
+    "https://placehold.co/1280x720/222/ffffff?text=Screenshot+1",
+    "https://placehold.co/1280x720/333/ffffff?text=Screenshot+2",
+    "https://placehold.co/1280x720/444/ffffff?text=Screenshot+3"
+  ],
+  /* 5. Giới thiệu */
+  descriptionTitle: "GIỚI THIỆU & HƯỚNG DẪN TẢI & SỬ DỤNG",
+  description: "Viết phần giới thiệu và hướng dẫn sử dụng tại đây.\n\nMỗi lần xuống dòng sẽ được giữ nguyên khi hiển thị."
+};
+/* KHÔNG CẦN SỬA PHẦN DƯỚI */
+document.title=APP.pageTitle;document.querySelector("#storeLogo").src=APP.storeLogo;document.querySelector("#homeLink").onclick=()=>window.location.href=APP.homeUrl;document.querySelector("#appIcon").src=APP.icon;document.querySelector("#appIcon").alt=APP.name;document.querySelector("#heroBg").style.backgroundImage=`url(${APP.icon})`;document.querySelector("#appName").textContent=APP.name;document.querySelector("#tagline").textContent=APP.tagline;document.querySelector("#price").textContent=APP.price;document.querySelector("#downloadButton").href=APP.downloadUrl;document.querySelector("#descriptionTitle").textContent=APP.descriptionTitle;document.querySelector("#description").style.whiteSpace="pre-line";document.querySelector("#description").textContent=APP.description;
+const infoBar=document.querySelector("#infoBar");APP.details.forEach(([label,value,note])=>{const box=document.createElement("div");box.className="info-box";const small=document.createElement("small");small.textContent=label;const h3=document.createElement("h3");h3.textContent=value;box.append(small,h3);if(note){const span=document.createElement("span");span.textContent=note;box.append(span)}infoBar.append(box)});
+const slider=document.querySelector("#slider");APP.screenshots.forEach((url,i)=>{const image=document.createElement("img");image.loading="lazy";image.decoding="async";image.src=url;image.alt=`Ảnh ${i+1} của ${APP.name}`;slider.append(image)});
+let index=0;function updateNav(){const left=document.querySelector(".nav.left"),right=document.querySelector(".nav.right"),total=slider.children.length;left.style.display=index===0?"none":"flex";right.style.display=index>=total-3?"none":"flex"}function slide(dir){const total=slider.children.length;index+=dir;if(index<0)index=0;if(index>total-3)index=total-3;const image=slider.children[0];if(image)slider.style.transform=`translateX(-${index*(image.offsetWidth+20)}px)`;updateNav()}updateNav();
+</script>
+</body>
+</html>
+
