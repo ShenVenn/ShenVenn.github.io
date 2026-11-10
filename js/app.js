@@ -37,7 +37,7 @@
     ? `<div class="info-box"><small>${esc(label)}</small><h3>${esc(big)}</h3>${small ? `<span>${esc(small)}</span>` : ""}</div>`
     : "";
   $("infoBar").innerHTML = [
-    box(`${app.ratings} RATINGS`, app.rating && `${app.rating} ★`),
+    box(`${app.ratings ? app.ratings + " " : ""}RATINGS`, app.rating && `${app.rating} ★`),
     box("AGES", app.age, "Years"),
     box("CATEGORY", app.category),
     box("DEVELOPER", app.developer?.[0], app.developer?.[1]),

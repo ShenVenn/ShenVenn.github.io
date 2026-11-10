@@ -92,17 +92,22 @@ PS: Không đăng nhập ( các tính năng AI phải đăng nhập để dùng 
   {
     id: "crosshair-x",
     name: "Crosshair X",
-    tagline: "Chỉnh/Thay đổi tâm ngắm",
-    icon: "https://i.ibb.co/tPFbbPQ1/apps-28166-14083481012137053-8dd52c3f-852b-4b54-a82f-7927fdfb0143.png",
-    category: "",
-    developer: [],
+    tagline: "Chỉnh/thay tâm ngắm",
+    icon: "https://i.ibb.co/zHFmVJdS/apps-28166-14083481012137053-8dd52c3f-852b-4b54-a82f-7927fdfb0143.png",
+    category: "ACTION",
+    developer: ["CENTERPOINT GAMING","CORPORATION"],
     ratings: "",
-    rating: "",
-    age: "",
-    language: [],
-    size: [],
-    download: "",
-    screenshots: [],
+    rating: "4.8",
+    age: "7+",
+    language: ["EN","+ 15 More"],
+    size: ["172.5","MB"],
+    download: "https://github.com/ShenVenn/ShenVenn.github.io/releases/download/v1.0.0/Crosshair-X-AnkerGames.zip",
+    screenshots: [
+      "https://i.ibb.co/zVNJPb0m/98bcda6d01f6dbc9cd89162c12a4adeb.webp",
+      "https://i.ibb.co/Mx7gbQWv/Screenshot-2026-10-03-141952.png",
+      "https://i.ibb.co/YFs4QLcq/Screenshot-2026-10-03-142040.png",
+      "https://i.ibb.co/fVgt8r2W/Screenshot-2026-10-03-142125.png"
+    ],
     description: ``
   },
   {
