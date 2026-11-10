@@ -3,6 +3,7 @@
 
 /* HERO */
 .hero {
+  box-sizing: content-box;   /* như bản gốc: cao 200px + đệm 40px trên/dưới = logo có khoảng cách với mép */
   position: relative;
   padding: 40px 45px;
   overflow: hidden;
