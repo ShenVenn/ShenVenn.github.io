@@ -1,0 +1,118 @@
+/* ===== BASE: dùng chung cho mọi trang ===== */
+:root {
+  --bg: #000;
+  --sidebar: #0b0b0b;
+  --card: #1c1c1e;
+  --card-2: #2c2c2e;
+  --text: #fff;
+  --muted: #aaa;
+  --accent: #007aff;
+  --glow: 77, 163, 255;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--sidebar);
+  padding: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  text-shadow: 0 0 6px rgba(255,255,255,.4), 0 0 12px rgba(0,122,255,.25);
+  transition: transform .2s, text-shadow .2s;
+}
+.logo:hover {
+  transform: scale(1.06);
+  text-shadow: 0 0 6px rgba(255,255,255,.8), 0 0 16px rgba(0,122,255,.7), 0 0 30px rgba(0,122,255,.5);
+}
+.logo img { width: 32px; height: 32px; }
+
+.search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #1a1a1a;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+.menu a:hover { background: #1f1f1f; color: #fff; }
+
+/* ===== NÚT KÍNH (View / GET dùng chung 1 style) ===== */
+.glass-btn {
+  position: relative;
+  padding: 7px 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -1px 0 rgba(255,255,255,.05), 0 4px 18px rgba(0,0,0,.4);
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  top: 2px; left: 6px; right: 6px;
+  height: 45%;
+  border-radius: inherit;
+  background: linear-gradient(to bottom, rgba(255,255,255,.55), transparent);
+  opacity: .25;
+  pointer-events: none;
+}
+.glass-btn:hover {
+  background: linear-gradient(180deg, rgba(var(--glow),.45), rgba(var(--glow),.15));
+  box-shadow: 0 6px 25px rgba(var(--glow),.35), inset 0 1px 0 rgba(255,255,255,.6);
+}
+.glass-btn:active { transform: scale(.95); }
+
+/* ===== ICON DỰ PHÒNG khi ảnh lỗi ===== */
+.icon-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #3a3a3c, #1c1c1e);
+  color: #aaa;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  body { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Store</title>
+<link rel="icon" type="image/png" href="https://i.ibb.co/GQ0SR6P7/b8b6fd228823037-Y3-Jvc-Cwy-Nj-Aw-LDIw-Mz-Qs-MTgw-LDgx-MQ.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <h2 class="logo" onclick="location.href='index.html'">
+    <img src="https://i.ibb.co/66fFVKh/831378.png" alt="">App Store
+  </h2>
+  <nav class="menu">
+    <a href="index.html">Today</a>
+    <a href="index.html">Games</a>
+    <a href="index.html">Apps</a>
+  </nav>
+</aside>
+
+<main class="main" id="content">
+
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+      <div class="icon" id="icon"></div>
+      <div class="info">
+        <h1 id="appName"></h1>
+        <div class="sub" id="tagline"></div>
+        <div class="sub">Free · In-App Purchases</div>
+        <a class="get-btn" id="getBtn" href="#">GET</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-bar" id="infoBar"></section>
+
+  <section class="shots" id="shots">
+    <button class="nav left" id="navLeft" aria-label="Previous"><span>‹</span></button>
+    <div class="slider-wrapper"><div class="slider" id="slider"></div></div>
+    <button class="nav right" id="navRight" aria-label="Next"><span>›</span></button>
+  </section>
+
+  <div class="divider" id="divider"></div>
+  <section class="desc" id="desc">
+    <span class="title-glow">GIỚI THIỆU &amp; HƯỚNG DẪN TẢI &amp; SỬ DỤNG</span>
+    <div class="desc-text" id="descText"></div>
+  </section>
+
+</main>
+
+<script src="data/apps.js"></script>
+<script src="js/common.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
