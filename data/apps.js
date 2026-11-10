@@ -5,6 +5,8 @@
    khoảng trắng, duy nhất) rồi điền thông tin. Sau đó thêm id đó vào
    HOME.top / HOME.essentials nếu muốn hiện ở trang chủ.
    Trang chi tiết tự có tại:  app.html?id=<id>
+   (tuỳ chọn) fullName / subtitle: tên và phụ đề riêng cho trang chi tiết,
+   không điền thì dùng name / tagline.
    description: viết chữ thường, xuống dòng là xuống dòng, dán link http...
    sẽ tự thành link bấm được.
    ===================================================================== */
@@ -13,6 +15,7 @@ window.APPS = [
     id: "activation-win10",
     name: "Activation Win10",
     tagline: "Crack bản quyền win10",
+    subtitle: "Kích hoạt bản quyền Win10",
     icon: "https://i.ibb.co/KjLQK29w/So-sanh-windows-10-voi-windows-11.png",
     category: "ACTION",
     developer: ["WINDOWS", "CORPORATION"],
@@ -68,6 +71,7 @@ PS: PASS giải nén : shenhall`
     id: "capcut",
     name: "CapCut PRO",
     tagline: "Ứng dụng chỉnh sửa video đa năng",
+    subtitle: "Chỉnh Sửa Video",
     icon: "https://i.ibb.co/fzNjnPzQ/e002205cf0c57b42ee6045d4ae5ec2ce.jpg",
     category: "ACTION",
     developer: ["CAPCUT", "CORPORATION"],
@@ -93,6 +97,7 @@ PS: Không đăng nhập ( các tính năng AI phải đăng nhập để dùng 
     id: "crosshair-x",
     name: "Crosshair X",
     tagline: "Chỉnh/thay tâm ngắm",
+    subtitle: "Chỉnh/thay tâm ngắm",
     icon: "https://i.ibb.co/zHFmVJdS/apps-28166-14083481012137053-8dd52c3f-852b-4b54-a82f-7927fdfb0143.png",
     category: "ACTION",
     developer: ["CENTERPOINT GAMING","CORPORATION"],
@@ -114,6 +119,8 @@ PS: Không đăng nhập ( các tính năng AI phải đăng nhập để dùng 
     id: "defender",
     name: "Defender",
     tagline: "Tắt phần mền diệt virus",
+    fullName: "Windows Defender",
+    subtitle: "Vô hiệu hóa Windows Defender",
     icon: "https://i.ibb.co/G38YxKhh/windows-defender-off.png",
     category: "ACTION",
     developer: ["WINDOWS", "CORPORATION"],
@@ -139,6 +146,7 @@ PS: Không đăng nhập ( các tính năng AI phải đăng nhập để dùng 
     id: "driver-booster",
     name: "DriverBooster 12",
     tagline: "Trình cập nhật trình điều khiển",
+    fullName: "Driver Booster 12",
     icon: "https://i.ibb.co/Y7hPTFhP/Driver-booster-12-license-key-2025-1.png",
     category: "ACTION",
     developer: ["WINDOWS", "CORPORATION"],
@@ -154,13 +162,7 @@ PS: Không đăng nhập ( các tính năng AI phải đăng nhập để dùng 
       "https://i.ibb.co/fz6VTcps/hq720.jpg",
       "https://i.ibb.co/2Ycc23mL/iobit-driver-booster-12-pro-icon-1200-600-2.jpg"
     ],
-    description: `----- Tải Rồi nhập key -----
-
-
-Hạn Sự Dụng : 18/04/2026
-
-
-Hạn Sự Dụng : 31/05/2026`
+    description: ``
   },
   {
     id: "everything",
@@ -198,6 +200,7 @@ https://www.voidtools.com/downloads/
     id: "idm",
     name: "IDM",
     tagline: "Tăng tốc độ tải xuống",
+    fullName: "Internet Download Manager",
     icon: "https://i.ibb.co/1fmN4Nd8/Internet-Download-Manager-02.jpg",
     category: "ACTION",
     developer: ["WINDOWS", "CORPORATION"],
@@ -242,6 +245,7 @@ PS: Pass giải nén: shenhall
     id: "iobit-uninstaller",
     name: "IObit Uninstaller",
     tagline: "Xóa file sạch vs tận gốc",
+    subtitle: "Xóa file sạch/tận gốc",
     icon: "https://i.ibb.co/4Rf8N4Xz/images-1.png",
     category: "ACTION",
     developer: ["IOBIT", "CORPORATION"],
@@ -257,43 +261,13 @@ PS: Pass giải nén: shenhall
       "https://i.ibb.co/Jj7vJjk3/uninstalling-24.png"
     ],
     description: `IObit Uninstaller 15 là phần mềm chuyên dụng trên Windows giúp gỡ bỏ triệt để các ứng dụng, plugin trình duyệt và bundleware (phần mềm đi kèm) không mong muốn.
-
-  Công cụ này tự động xóa tệp rác, registry dư thừa sau khi gỡ, giúp máy tính chạy nhanh và an toàn hơn so với cách gỡ thông thường.
-
------ Tải IObit Uninstaller 15 rồi nhập key -----
-
-
-Hạn đến: 20/08/2024 
-
-  
-
-Hạn đến: 16/10/2024
-
-
-Hạn đến: 08/11/2024
-
-
-Hạn đến: 03/06/2025
-
-
-Hạn đến: 24/08/2025
-
-
-Hạn đến: 05/10/2025
-
-
-Hạn đến : 16/04/2026
-
-
-Hạn đến : 18/08/2026
-
-
-Hạn đến : 09/11/2026`
+Công cụ này tự động xóa tệp rác, registry dư thừa sau khi gỡ, giúp máy tính chạy nhanh và an toàn hơn so với cách gỡ thông thường.`
   },
   {
     id: "lossless-scaling",
     name: "LossLess Scaling",
     tagline: "Tăng FPS + Graphics lên X2,X3...",
+    subtitle: "Tăng FPS X2-X3...",
     icon: "https://i.ibb.co/sJdNzCJ1/images-2.png",
     category: "ACTION",
     developer: ["THS", "CORPORATION"],
@@ -388,7 +362,7 @@ C:\\Program Files (x86)\\Steam\\steamapps\\common\\Hogwarts Legacy\\Phoenix\\Bin
 
 -- Sau đó vào game và bật FrameGen lên là được 
 
----- Bản cập nhật mod :https://www.nexusmods.com/site/mods/738?tab=description
+---- Bản cập nhật mod : https://www.nexusmods.com/site/mods/738?tab=description
 
 + Chọn vào mục FILES 
 

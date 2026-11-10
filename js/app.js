@@ -14,13 +14,13 @@
     return;
   }
 
-  document.title = `${app.name} - App Store`;
+  document.title = `${app.fullName || app.name} - App Store`;
 
   // ---------- HERO ----------
   $("heroBg").style.backgroundImage = `url("${app.icon.replace(/"/g, "%22")}")`;
   $("icon").prepend(makeIcon(app.icon, app.name));
-  $("appName").textContent = app.name;
-  $("tagline").textContent = app.tagline;
+  $("appName").textContent = app.fullName || app.name;
+  $("tagline").textContent = app.subtitle || app.tagline;
 
   const btn = $("getBtn");
   if (app.download) {
